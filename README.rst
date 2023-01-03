@@ -61,7 +61,7 @@ Then, you need to give the path to the main directory to the script, like this::
 - 'target': ndarray of shape (n_samples,)
 - 'DESCR': str, the full description of the dataset
 
-It is the same structure as the one used by scikit-learn for their `datasets <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html>`_
+It is the same structure as the one used by scikit-learn for their `datasets <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html>`_.
 
 The dataset is saved as a pickle file under the main directory that you provided to the script.
 
@@ -69,6 +69,15 @@ The next times the script is run, the dataset will be loaded from disk.
 
 Results of clustering HTML pages
 --------------------------------
+`:information_source:` A random model is also trained on this dataset and its performance is reported. This random model
+only randomly generates the labels for the Wikipedia pages:
+
+.. code-block:: python
+
+   self.labels_ = np.random.randint(0, self.n_clusters, X.shape[0])
+
+|
+
 +-------------------------+--------------------------------+--------------------------+-----------------------------------------+------------------------------------+---------------------------------------------+-----------------------------------------+------------------------------------+---------------------------------------------+
 |                         | RandomModel on tf-idf vectors  | KMeanson tf-idf vectors  | RandomModel with LSA on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | RandomModel with LSA on hashed vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
 +=========================+================================+==========================+=========================================+====================================+=============================================+=========================================+====================================+=============================================+
