@@ -45,9 +45,9 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 
 For example:
 
-- ./wikipedia/**biology**/Cell theory.html
-- ./wikipedia/**philosophy**/Cartesian doubt.html
-- ./wikipedia/**physics**/Charge conservation.html
+- ../wikipedia/**biology**/Cell theory.html
+- ../wikipedia/**philosophy**/Cartesian doubt.html
+- ../wikipedia/**physics**/Charge conservation.html
 
 Then, you need to give the path to the main directory to the script, like this::
 
