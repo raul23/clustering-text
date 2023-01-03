@@ -51,7 +51,7 @@ For example:
 
 Then, you need to give the path to the main directory to the script, like this::
 
- $ python extract_from_infobox.py ~/Data/wikipedia/
+ $ python cluster_text_docs.py ~/Data/wikipedia/
 
 `:information_source:` The first time the script is run, the dataset of HTML documents will be generated. This dataset is a `Bunch <https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html>`_ object (a dictionary-like object that allows you to access its values by keys or attributes) with the following structure:
 
