@@ -33,7 +33,7 @@ This is the environment on which the `script <./scripts/cluster_text_docs.py>`_ 
 * **Python**: version **3.7**
 * `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for screen-scraping
 
-`:warning:` In order to run the script ``cluster_text_docs.py``, you need first to have a directory (e.g. ./wikipedia/) with all the Wikipedia pages (\*.html) you want to test clustering on. Each Wikipedia page should be in a folder whose name should correspond to the category of said page.
+`:warning:` In order to run the script ``cluster_text_docs.py``, you need first to have a main directory (e.g. ./wikipedia/) with all the Wikipedia pages (\*.html) you want to test clustering on. Each Wikipedia page should be in a folder whose name should correspond to the category of said page.
 
 For example:
 
@@ -41,7 +41,7 @@ For example:
 - ./wikipedia/**philosophy**/Cartesian doubt.html
 - ./wikipedia/**physics**/Charge conservation.html
 
-Then, you need to give the path to this directory to the script, like this::
+Then, you need to give the path to the main directory to the script, like this::
 
  $ python extract_from_infobox.py ~/Data/wikipedia/
 
