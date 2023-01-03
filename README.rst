@@ -131,6 +131,6 @@ should be in the philosophy category and probability and statistical should be i
 
 The top words for the other clusters 1 to 3 (in particular cluster 1 with the biology-related words) are well choosen by KMeans.
 
-Clustering ebooks (PDF, djvu, epub, txt)
+Clustering ebooks (pdf, djvu, epub, txt)
 ========================================
 TODO
