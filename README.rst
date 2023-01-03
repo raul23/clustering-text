@@ -27,13 +27,19 @@ The size for each category:
 - Philosophy: 16
 - Physics: 20
 
-This is the environment on which the `script <./scripts/cluster_text_docs.py>`_ was tested:
+This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
 
 * **Platform:** macOS
 * **Python**: version **3.7**
 * `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for screen-scraping
+* `matplotlib <https://matplotlib.org/>`_: **v3.5.2** for generating graphs
+* `numpy <https://numpy.org/>`_: **v1.21.5**, for "array processing for numbers, strings, records, and objects"
+* `pandas <https://pandas.pydata.org/>`_: **v1.3.5**, "High-performance, easy-to-use data structures and data analysis tool" 
+* `scikit-learn <https://scikit-learn.org/>`_: **v1.0.2**, "a set of python modules for machine learning and data mining"
 
-`:warning:` In order to run the script ``cluster_text_docs.py``, you need first to have a main directory (e.g. ./wikipedia/) with all the Wikipedia pages (\*.html) you want to test clustering on. Each Wikipedia page should be in a folder whose name should correspond to the category of said page.
+**Ref.:** https://docs.anaconda.com/anaconda/packages/py3.7_osx-64/
+
+`:warning:` In order to run the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_, you need first to have a main directory (e.g. ./wikipedia/) with all the Wikipedia pages (\*.html) you want to test clustering on. Each Wikipedia page should be in a folder whose name should correspond to the category of said page.
 
 For example:
 
