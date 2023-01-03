@@ -33,7 +33,7 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 
 * **Platform:** macOS
 * **Python**: version **3.7**
-* `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for retrieving the text-only from an HTML page
+* `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for retrieving the only the text from an HTML page
 * `matplotlib <https://matplotlib.org/>`_: **v3.5.2** for generating graphs
 * `numpy <https://numpy.org/>`_: **v1.21.5**, for "array processing for numbers, strings, records, and objects"
 * `pandas <https://pandas.pydata.org/>`_: **v1.3.5**, "High-performance, easy-to-use data structures and data analysis tool" 
