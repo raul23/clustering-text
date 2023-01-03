@@ -119,7 +119,7 @@ Thus we can infer the labels for each cluster found by KMeans:
 - Cluster 3: physics
 - Cluster 4: mathematics
 
-In general, the top terms for each cluster are well selected by the KMeans. Though KMeans has some difficulty with the 
+In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
 philosophy and mathematics categories as some words are misplaced such as socratic and descartes which
 should be in the philosophy category and probability and stasticial shoulbe be in the mathematics category.
 
