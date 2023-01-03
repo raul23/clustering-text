@@ -8,7 +8,7 @@ Experimenting with clustering text documents
    
 I am basing my experimentation with clustering text on the very great scikit-learn's tutorial: `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html>`_.
 
-I am following along their tutorial but using my own two datasets: Wikipedia pages and a bunch of ebooks with different formats (pdf, djvu, epub and txt).
+I am following along their tutorial but using my own two datasets: Wikipedia pages (html) and a bunch of ebooks with different formats (pdf, djvu, epub and txt).
 
 Clustering Wikipedia pages (html)
 =================================
