@@ -10,8 +10,8 @@ I am basing my experimentation with clustering text on the very great scikit-lea
 
 I am following along their tutorial but using my own two datasets: Wikipedia pages and a bunch of ebooks with different formats (pdf, djvu, epub and txt).
 
-Clustering HTML pages
-=====================
+Clustering Wikipedia pages (HTML)
+=================================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, chemistry, mathematics, philosophy, physics).
 
 I will eventually build a larger dataset but for now I just wanted to test out some of the clustering algorithms as soon as possible but even with
@@ -67,8 +67,8 @@ The dataset is saved as a pickle file under the main directory that you provided
 
 The next times the script is run, the dataset will be loaded from disk and as long as you don't delete or move the pickle file saved directly under the main directory.
 
-Results of clustering HTML pages
---------------------------------
+Results of clustering Wikipedia pages
+-------------------------------------
 `:information_source:` A random model is also trained on this dataset and its performance is reported. This model
 randomly generates the labels for the Wikipedia pages:
 
