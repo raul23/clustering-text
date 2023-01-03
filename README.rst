@@ -115,7 +115,7 @@ The 10 most influential words for each cluster according to the KMean algorithm 
    Cluster 3: relativity motion speed mathbf spacetime wave frame conservation waves charge 
    Cluster 4: mathematics logic geometry algebra discrete reasoning mind numbers socratic descartes 
 
-Recall the true labels: biology, chemistry, mathematics, philosophy, physics.
+Recall the `true labels <#clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
 
 Thus we can infer the labels for each cluster found by KMeans:
 
