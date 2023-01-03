@@ -44,7 +44,7 @@ The **size** for each category:
 
   - if they appear in more than 50% of the documents
   - if they are not present in at least 5 documents
-- Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero.
+- Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero
 
 Script ``cluster_text_docs.py``
 -------------------------------
