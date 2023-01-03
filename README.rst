@@ -110,7 +110,7 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 
 .. raw:: html
 
-   <p align="center"><img src="./images/results_clustering_html_pages_2.png">
+   <p align="center"><img src="./images/results_clustering_html_pages_3.png">
    </p>
 
 Top terms per cluster
