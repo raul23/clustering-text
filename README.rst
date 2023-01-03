@@ -107,7 +107,7 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 
 Top terms per cluster
 ---------------------
-The 10 most influential words for each cluster::
+The 10 most influential words for each cluster according to the KMean algorithm::
 
    Cluster 0: probability language statistical reality realism events scale sample interpretation hypothesis 
    Cluster 1: cell dna biology cells genes gene organisms bacteria population genetic 
