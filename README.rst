@@ -93,7 +93,7 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 |
 
 +-------------------------+----------------+--------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-|                         | RandomModel    | KMeanson tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
+|                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
 +=========================+================+==========================+====================================+=============================================+====================================+=============================================+
 | Time                    | 0.00 ± 0.00 s  | 0.10 ± 0.00 s            | 0.00 ± 0.00 s                      | 0.05 ± 0.02 s                               | 0.00 ± 0.00 s                      | 0.03 ± 0.00 s                               |
 +-------------------------+----------------+--------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
