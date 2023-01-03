@@ -14,7 +14,15 @@ Clustering HTML pages
 =====================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, chemistry, mathematics, philosophy, physics).
 
-The list can be found at `list_wikipedia_pages.rst <./list_wikipedia_pages.rst>`_.
+The list of these Wikipedia pages can be found at `list_wikipedia_pages.rst <./list_wikipedia_pages.rst>`_.
+
+The size for each category:
+
+- Biology: 12
+- Chemistry: 12
+- Mathematics: 10
+- Philosophy: 16
+- Physics: 20
 
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
