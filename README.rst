@@ -111,7 +111,7 @@ The 10 most influential words for each cluster::
 
 Recall the true labels: biology, chemistry, mathematics, philosophy, physics.
 
-Thus we can infer that:
+Thus we can infer the labels for each cluster found by KMeans:
 
 - Cluster 0: philosophy
 - Cluster 1: biology
