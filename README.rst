@@ -27,6 +27,8 @@ The size for each category:
 - Philosophy: 16
 - Physics: 20
 
+Script ``cluster_text_docs.py``
+-------------------------------
 This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
 
 * **Platform:** macOS
@@ -50,6 +52,9 @@ For example:
 Then, you need to give the path to the main directory to the script, like this::
 
  $ python extract_from_infobox.py ~/Data/wikipedia/
+
+Results of clustering the HTML pages
+------------------------------------
 
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
