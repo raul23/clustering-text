@@ -117,7 +117,7 @@ The 10 most influential words for each cluster according to the KMean algorithm 
 
 Recall the `true labels <#clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
 
-Thus we can infer the labels for each cluster found by KMeans:
+Thus we could infer the labels for each cluster found by KMeans:
 
 - Cluster 0: philosophy
 - Cluster 1: biology
@@ -126,8 +126,16 @@ Thus we can infer the labels for each cluster found by KMeans:
 - Cluster 4: mathematics
 
 In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
-philosophy and mathematics categories as some words are misplaced such as socratic and descartes which
-should be in the philosophy category and probability and statistical should be in the mathematics category.
+philosophy and mathematics categories as some words are misplaced such as socratic which
+should be in the philosophy category and probability & statistical should be in the mathematics category.
+
+`:information_source:` From the Wikipedia pages composing the dataset:
+
+ - `Mathematics https://en.wikipedia.org/wiki/Mathematics`_: Socrates, Descartes and mind are mentioned zero, 
+   twice and seven times, respectively.
+ - `Philosophy <https://en.wikipedia.org/wiki/Philosophy>`_: Only once is the word 'statistical` mentioned and
+   probability is not mentioned at all.
+ - `Socratic questioning <https://en.wikipedia.org/wiki/Socratic_questioning>`_: no mention of mathematics at all.
 
 The top words for the other clusters 1 to 3 (in particular cluster 1 with the biology-related words) are well choosen by KMeans.
 
