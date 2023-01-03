@@ -101,6 +101,8 @@ def read_file(filepath):
 def shuffle_dataset(dataset):
     idx = np.random.permutation(range(len(dataset.target)))
     for k, v in dataset.items():
+        if len(v) != len(idx):
+            continue
         if isinstance(v, list):
             dataset[k] = list(np.array(v)[idx])
         elif isinstance(v, np.ndarray):
@@ -116,8 +118,9 @@ def generate_dataset(input_directory, dataset_type):
         DESCR=''
     )
 
-    labels = sorted([item.name for item in input_directory.iterdir() if item.is_dir()])
-    target_name_to_value = dict(zip(labels, [i for i in range(len(labels))]))
+    target_names = sorted([item.name for item in input_directory.iterdir() if item.is_dir()])
+    dataset.target_names = target_names
+    target_name_to_value = dict(zip(target_names, [i for i in range(len(target_names))]))
 
     for i, filepath in enumerate(input_directory.rglob('*.html'), start=1):
         print(f'Processing document {i}: {filepath.name}\n')
@@ -125,9 +128,7 @@ def generate_dataset(input_directory, dataset_type):
         text = BeautifulSoup(raw_text, 'html.parser').get_text().replace('\xa0', ' ')
         dataset.data.append(text)
         dataset.filenames.append(filepath)
-        target_name = filepath.parent.name
-        dataset.target_names.append(target_name)
-        dataset.target.append(target_name_to_value[target_name])
+        dataset.target.append(target_name_to_value[filepath.parent.name])
     dataset.target = np.asarray(dataset.target)
     return dataset
 
