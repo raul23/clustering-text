@@ -27,13 +27,13 @@ The size for each category:
 - Philosophy: 16
 - Physics: 20
 
-This is the environment on which the `script <./scripts/cluster_text_docs.py >`_ was tested:
+This is the environment on which the `script <./scripts/cluster_text_docs.py>`_ was tested:
 
 * **Platform:** macOS
 * **Python**: version **3.7**
 * `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for screen-scraping
 
-`:warning:` In order to run the script ``cluster_text_docs.py ``, you need first to have a directory with all the Wikipedia pages (\*.html) you want to parse. Each Wikipedia page should be in a folder whose name should correspond to the category of the page.
+`:warning:` In order to run the script ``cluster_text_docs.py``, you need first to have a directory with all the Wikipedia pages (\*.html) you want to parse. Each Wikipedia page should be in a folder whose name should correspond to the category of the page.
 
 For example:
 
