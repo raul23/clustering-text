@@ -19,7 +19,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 from sklearn.utils import Bunch
 
-import ipdb
+# import ipdb
 
 evaluations = []
 evaluations_std = []
