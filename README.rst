@@ -76,7 +76,7 @@ randomly generates the labels for the Wikipedia pages:
 
    self.labels_ = np.random.randint(0, self.n_clusters, X.shape[0])
 
-But keep in mind what they say about random labeling scikit-learn's tutorial `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html#clustering-evaluation-summary>`_:
+But keep in mind what they say about random labeling in scikit-learn's tutorial `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html#clustering-evaluation-summary>`_:
 
  The homogeneity, completeness and hence v-measure metrics do not yield a baseline with regards to random labeling: 
  this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
