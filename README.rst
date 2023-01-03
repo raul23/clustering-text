@@ -14,6 +14,9 @@ Clustering HTML pages
 =====================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, chemistry, mathematics, philosophy, physics).
 
+I will eventually build a larger dataset but for now I just wanted to test out some of the clustering algorithms as soon as possible but even with
+a small dataset, the clustering results are not that bad.
+
 The list of these Wikipedia pages can be found at `list_wikipedia_pages.rst <./list_wikipedia_pages.rst>`_.
 
 The size for each category:
