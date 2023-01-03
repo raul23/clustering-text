@@ -127,7 +127,7 @@ Thus we can infer the labels for each cluster found by KMeans:
 
 In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
 philosophy and mathematics categories as some words are misplaced such as socratic and descartes which
-should be in the philosophy category and probability and stasticial should be be in the mathematics category.
+should be in the philosophy category and probability and statistical should be in the mathematics category.
 
 The top words for the other clusters 1 to 3 (in particular cluster 1 with the biology-related words) are well choosen by KMeans.
 
