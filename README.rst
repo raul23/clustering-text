@@ -65,7 +65,7 @@ It is the same structure as the one used by scikit-learn for their `datasets <ht
 
 The dataset is saved as a pickle file under the main directory that you provided to the script.
 
-The next times the script is run, the dataset will be loaded from disk and as long as you don't delete or move the pickle file saved directly under the main directory.
+The next times the script is run, the dataset will be loaded from disk as long as you don't delete or move the pickle file saved directly under the main directory.
 
 Results of clustering Wikipedia pages
 -------------------------------------
