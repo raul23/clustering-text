@@ -53,8 +53,8 @@ Then, you need to give the path to the main directory to the script, like this::
 
  $ python extract_from_infobox.py ~/Data/wikipedia/
 
-Results of clustering the HTML pages
-------------------------------------
+Results of clustering HTML pages
+--------------------------------
 
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
