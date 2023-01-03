@@ -12,14 +12,20 @@ I am following along their tutorial but using my own two datasets: Wikipedia pag
 
 Clustering Wikipedia pages
 ==========================
-The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, chemistry, mathematics, philosophy, physics).
+The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories
+
+- ``biology`` with label 0
+- ``chemistry`` with label 1
+- ``mathematics`` with label 2
+- ``philosophy`` with label 3
+- ``physics`` with label 4
 
 I will eventually build a larger dataset but for now I just wanted to test out some of the clustering algorithms as soon as possible but even with
 a small dataset, the clustering `results <#results-of-clustering-wikipedia-pages>`_ are not that bad.
 
 The list of these Wikipedia pages can be found at `List of Wikipedia pages used for clustering <./list_wikipedia_pages.rst>`_.
 
-The size for each category:
+The **size** for each category:
 
 - Biology: 12
 - Chemistry: 12
