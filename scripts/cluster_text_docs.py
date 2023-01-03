@@ -17,8 +17,9 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import HashingVectorizer, TfidfTransformer, TfidfVectorizer
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
+from sklearn.utils import Bunch
 
-# import ipdb
+import ipdb
 
 evaluations = []
 evaluations_std = []
@@ -97,20 +98,20 @@ def read_file(filepath):
 
 
 def shuffle_dataset(dataset):
-    idx = np.random.permutation(range(len(dataset['target'])))
+    idx = np.random.permutation(range(len(dataset.target)))
     for k, v in dataset.items():
         if isinstance(v, list):
             dataset[k] = list(np.array(v)[idx])
 
 
 def generate_dataset(input_directory):
-    dataset = {
-        'data': [],
-        'filenames': [],
-        'target_names': [],
-        'target': [],
-        'DESCR': ''
-    }
+    dataset = Bunch(
+        data=[],
+        filenames=[],
+        target_names=[],
+        target=[],
+        DESCR=''
+    )
     target_name_to_value = {
         'biology': 0,
         'chemistry': 1,
@@ -122,11 +123,11 @@ def generate_dataset(input_directory):
         print(f'Processing document {i}: {filepath.name}\n')
         raw_text = read_file(filepath)
         text = BeautifulSoup(raw_text, 'html.parser').get_text().replace('\xa0', ' ')
-        dataset['data'].append(text)
-        dataset['filenames'].append(filepath)
+        dataset.data.append(text)
+        dataset.filenames.append(filepath)
         target_name = filepath.parent.name
-        dataset['target_names'].append(target_name)
-        dataset['target'].append(target_name_to_value[target_name])
+        dataset.target_names.append(target_name)
+        dataset.target.append(target_name_to_value[target_name])
     return dataset
 
 
@@ -147,17 +148,17 @@ if __name__ == '__main__':
         dump_pickle(input_directory.joinpath('dataset.pkl'), dataset)
 
     """
-    for filename in dataset['filenames']:
+    for filename in dataset.filenames:
         title = filename.name.split(' - ')[0]
         title_url = title.replace(' ', '_').replace("'", '%27')
         print(f"- `{title} <https://en.wikipedia.org/wiki/{title_url}>`_")
     """
 
     shuffle_dataset(dataset)
-    labels = dataset['target']
+    labels = dataset.target
     unique_labels, category_sizes = np.unique(labels, return_counts=True)
     true_k = unique_labels.shape[0]
-    print(f"{len(dataset['data'])} documents - {true_k} categories")
+    print(f"{len(dataset.data)} documents - {true_k} categories")
 
     # Feature Extraction using TfidfVectorizer
     print("\nFeature Extraction using TfidfVectorizer")
@@ -167,7 +168,7 @@ if __name__ == '__main__':
         stop_words="english",
     )
     t0 = time()
-    X_tfidf = vectorizer.fit_transform(dataset['data'])
+    X_tfidf = vectorizer.fit_transform(dataset.data)
 
     print(f"vectorization done in {time() - t0:.3f} s")
     print(f"n_samples: {X_tfidf.shape[0]}, n_features: {X_tfidf.shape[1]}")
@@ -242,7 +243,7 @@ if __name__ == '__main__':
     )
 
     t0 = time()
-    X_hashed_lsa = lsa_vectorizer.fit_transform(dataset['data'])
+    X_hashed_lsa = lsa_vectorizer.fit_transform(dataset.data)
     print(f"vectorization done in {time() - t0:.3f} s")
 
     print("\nRandomModel with LSA on hashed vectors")
