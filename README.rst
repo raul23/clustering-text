@@ -33,6 +33,15 @@ The **size** for each category:
 - Philosophy: 16
 - Physics: 20
 
+.. code-block::
+
+   Feature Extraction using TfidfVectorizer
+   vectorization done in 0.530 s
+   n_samples: 70, n_features: 5474
+   Sparsity: 0.166
+
+Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero.
+
 Script ``cluster_text_docs.py``
 -------------------------------
 This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
