@@ -12,7 +12,9 @@ I am following along their tutorial but using my own two datasets: Wikipedia pag
 
 Clustering HTML pages
 =====================
-The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories.
+The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, chemistry, mathematics, philosophy, physics).
+
+The list can be found at `list_wikipedia_pages.rst <./list_wikipedia_pages.rst>`_.
 
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
