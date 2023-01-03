@@ -69,12 +69,18 @@ The next times the script is run, the dataset will be loaded from disk.
 
 Results of clustering HTML pages
 --------------------------------
-`:information_source:` A random model is also trained on this dataset and its performance is reported. This random model
-only randomly generates the labels for the Wikipedia pages:
+`:information_source:` A random model is also trained on this dataset and its performance is reported. This model
+randomly generates the labels for the Wikipedia pages:
 
 .. code-block:: python
 
    self.labels_ = np.random.randint(0, self.n_clusters, X.shape[0])
+
+But as they say in the `scikit-learn's tutorial <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html#clustering-evaluation-summary>`_:
+
+ The homogeneity, completeness and hence v-measure metrics do not yield a baseline with regards to random labeling: 
+ this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
+ not always yield the same values.
 
 |
 
