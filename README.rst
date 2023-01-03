@@ -109,6 +109,22 @@ The 10 most influential words for each cluster::
    Cluster 3: relativity motion speed mathbf spacetime wave frame conservation waves charge 
    Cluster 4: mathematics logic geometry algebra discrete reasoning mind numbers socratic descartes 
 
+Recall the true labels: biology, chemistry, mathematics, philosophy, physics.
+
+Thus we can infer that:
+
+- Cluster 0: philosophy
+- Cluster 1: biology
+- Cluster 2: chemistry
+- Cluster 3: physics
+- Cluster 4: mathematics
+
+In general, the top terms for each cluster are well selected by the KMeans. Though KMeans has some difficulty with the 
+philosophy and mathematics categories as some words are misplaced such as socratic and descartes which
+should be in the philosophy category and probability and stasticial shoulbe be in the mathematics category.
+
+The top words for the other clusters 1 to 3 (in particular cluster 1 with the biology-related words) are well choosen by KMeans.
+
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
 TODO
