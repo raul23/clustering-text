@@ -129,7 +129,7 @@ In general, the top terms for each cluster are well selected by the KMeans algor
 philosophy and mathematics categories as some words are misplaced such as socratic which
 should be in the philosophy category and probability & statistical should be in the mathematics category.
 
-`:information_source:` From the Wikipedia pages composing the dataset:
+`:information_source:` From some of the Wikipedia pages composing the `dataset <./list_wikipedia_pages.rst>`_:
 
  - `Mathematics <https://en.wikipedia.org/wiki/Mathematics>`_: Socrates, Descartes and mind are mentioned zero, 
    twice and seven times, respectively.
