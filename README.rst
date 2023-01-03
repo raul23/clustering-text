@@ -69,7 +69,7 @@ The next times the script is run, the dataset will be loaded from disk as long a
 
 Results of clustering Wikipedia pages
 -------------------------------------
-`:information_source:` A random model is also trained on this dataset and its performance is reported. This model
+`:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
 randomly generates the labels for the Wikipedia pages:
 
 .. code-block:: python
