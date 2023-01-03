@@ -102,7 +102,7 @@ only randomly generates the labels for the Wikipedia pages:
 Top terms per cluster
 ---------------------
 
-.. code-block:: terminal
+.. code-block::
 
    Cluster 0: probability language statistical reality realism events scale sample interpretation hypothesis 
    Cluster 1: cell dna biology cells genes gene organisms bacteria population genetic 
