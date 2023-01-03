@@ -1,5 +1,6 @@
 # This script is based on scikit-learn's tutorial: Clustering text documents using k-means
 # Ref: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
+import argparse
 import os
 import pickle
 import sys
@@ -106,7 +107,7 @@ def shuffle_dataset(dataset):
             dataset[k] = v[idx]
 
 
-def generate_dataset(input_directory):
+def generate_dataset(input_directory, dataset_type):
     dataset = Bunch(
         data=[],
         filenames=[],
@@ -114,13 +115,10 @@ def generate_dataset(input_directory):
         target=[],
         DESCR=''
     )
-    target_name_to_value = {
-        'biology': 0,
-        'chemistry': 1,
-        'mathematics': 2,
-        'philosophy': 3,
-        'physics': 4
-    }
+
+    labels = sorted([item.name for item in input_directory.iterdir() if item.is_dir()])
+    target_name_to_value = dict(zip(labels, [i for i in range(len(labels))]))
+
     for i, filepath in enumerate(input_directory.rglob('*.html'), start=1):
         print(f'Processing document {i}: {filepath.name}\n')
         raw_text = read_file(filepath)
@@ -134,8 +132,28 @@ def generate_dataset(input_directory):
     return dataset
 
 
+def setup_argparser():
+    msg = 'Cluster text documents (HTML pages or ebooks).'
+    parser = argparse.ArgumentParser(
+        description='',
+        usage=f"python %(prog)s [OPTIONS]\n\n{msg}",
+        # ArgumentDefaultsHelpFormatter
+        # HelpFormatter
+        # RawDescriptionHelpFormatter
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument(
+        'input_directory', default=None, nargs=1,
+        help="Path to the main directory containing the documents to cluster.")
+    parser.add_argument(
+        '-e', '--ebooks', action='store_true',
+        help='Whether to cluster ebooks (pdf, djvu, epub).')
+    return parser
+
+
 if __name__ == '__main__':
-    input_directory = Path(os.path.expanduser(sys.argv[1]))
+    parser = setup_argparser()
+    args = parser.parse_args()
+    input_directory = Path(args.input_directory[0])
     SEED = 12345
     np.random.seed(SEED)
     dataset_path = input_directory.joinpath('dataset.pkl')
@@ -146,7 +164,7 @@ if __name__ == '__main__':
     except OSError:
         print(f"[ERROR] Dataset not found: {dataset_path}")
         print("Generating dataset ...")
-        dataset = generate_dataset(input_directory)
+        dataset = generate_dataset(input_directory, dataset_type=args.ebooks)
         print(f"Saving dataset: {dataset_path}")
         dump_pickle(input_directory.joinpath('dataset.pkl'), dataset)
 
