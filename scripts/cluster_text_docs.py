@@ -102,6 +102,8 @@ def shuffle_dataset(dataset):
     for k, v in dataset.items():
         if isinstance(v, list):
             dataset[k] = list(np.array(v)[idx])
+        elif isinstance(v, np.ndarray):
+            dataset[k] = v[idx]
 
 
 def generate_dataset(input_directory):
@@ -128,6 +130,7 @@ def generate_dataset(input_directory):
         target_name = filepath.parent.name
         dataset.target_names.append(target_name)
         dataset.target.append(target_name_to_value[target_name])
+    dataset.target = np.asarray(dataset.target)
     return dataset
 
 
