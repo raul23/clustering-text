@@ -115,7 +115,9 @@ def generate_dataset(input_directory, dataset_type):
         filenames=[],
         target_names=[],
         target=[],
-        DESCR=''
+        DESCR='This dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, '
+              'chemistry, mathematics, philosophy, physics).\nFor more information about this dataset: '
+              'https://github.com/raul23/clustering#clustering-wikipedia-pages'
     )
 
     target_names = sorted([item.name for item in input_directory.iterdir() if item.is_dir()])
