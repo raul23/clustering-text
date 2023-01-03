@@ -131,7 +131,7 @@ should be in the philosophy category and probability & statistical should be in 
 
 `:information_source:` From the Wikipedia pages composing the dataset:
 
- - `Mathematics https://en.wikipedia.org/wiki/Mathematics`_: Socrates, Descartes and mind are mentioned zero, 
+ - `Mathematics <https://en.wikipedia.org/wiki/Mathematics>`_: Socrates, Descartes and mind are mentioned zero, 
    twice and seven times, respectively.
  - `Philosophy <https://en.wikipedia.org/wiki/Philosophy>`_: Only once is the word 'statistical` mentioned and
    probability is not mentioned at all.
