@@ -53,6 +53,20 @@ Then, you need to give the path to the main directory to the script, like this::
 
  $ python extract_from_infobox.py ~/Data/wikipedia/
 
+`:information_source:` The first time the script is run, the dataset of HTML documents will be generated. This dataset is a `Bunch <https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html>`_ object (a dictionary-like object that allows you to access its values by keys or attributes) with the following structure:
+
+- 'data': list of shape (n_samples,)
+- 'filenames': list of shape (n_samples,)
+- 'target_names':  list of shape (n_classes,)
+- 'target': ndarray of shape (n_samples,)
+- 'DESCR': str, the full description of the dataset
+
+It is the same structure as the one used by scikit-learn for their `datasets <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html>`_
+
+The dataset is saved as a pickle file under the main directory that you provided to the script.
+
+The next times the script is run, the dataset will be loaded from disk.
+
 Results of clustering HTML pages
 --------------------------------
 +-------------------------+--------------------------------+--------------------------+-----------------------------------------+------------------------------------+---------------------------------------------+-----------------------------------------+------------------------------------+---------------------------------------------+
