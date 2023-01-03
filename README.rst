@@ -73,7 +73,7 @@ Results of clustering HTML pages
 
 .. raw:: html
 
-   <p align="center"><img src="./iamges/results_clustering_html_pages.png">
+   <p align="center"><img src="./images/results_clustering_html_pages.png">
    </p>
 
 Clustering ebooks (PDF, djvu, epub, txt)
