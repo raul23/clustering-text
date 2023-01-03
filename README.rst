@@ -133,7 +133,7 @@ should be in the philosophy category and probability & statistical should be in 
 
  - `Mathematics <https://en.wikipedia.org/wiki/Mathematics>`_: Socrates, Descartes and mind are mentioned zero, 
    twice and seven times, respectively.
- - `Philosophy <https://en.wikipedia.org/wiki/Philosophy>`_: Only once is the word 'statistical` mentioned and
+ - `Philosophy <https://en.wikipedia.org/wiki/Philosophy>`_: Only once is the word statistical mentioned and
    probability is not mentioned at all.
  - `Socratic questioning <https://en.wikipedia.org/wiki/Socratic_questioning>`_: no mention of mathematics at all.
 
