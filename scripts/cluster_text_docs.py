@@ -1,5 +1,5 @@
 # This script is based on scikit-learn's tutorial: Clustering text documents using k-means
-# ref: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
+# Ref: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
 import os
 import pickle
 import sys
@@ -38,6 +38,7 @@ class RandomModel:
         self.random_state = random_state
 
 
+# Ref: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
 def fit_and_evaluate(km, X, name=None, n_runs=5):
     name = km.__class__.__name__ if name is None else name
 
