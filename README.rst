@@ -101,15 +101,13 @@ only randomly generates the labels for the Wikipedia pages:
 
 Top terms per cluster
 ---------------------
-
-.. code-block::
+The 10 most influential words for each cluster::
 
    Cluster 0: probability language statistical reality realism events scale sample interpretation hypothesis 
    Cluster 1: cell dna biology cells genes gene organisms bacteria population genetic 
    Cluster 2: chemical chemistry equilibrium reaction bond gas atoms mathrm reactions compounds 
    Cluster 3: relativity motion speed mathbf spacetime wave frame conservation waves charge 
    Cluster 4: mathematics logic geometry algebra discrete reasoning mind numbers socratic descartes 
-
 
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
