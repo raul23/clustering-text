@@ -10,8 +10,8 @@ I am basing my experimentation with clustering text on the very great scikit-lea
 
 I am following along their tutorial but using my own two datasets: Wikipedia pages (html) and a bunch of ebooks with different formats (pdf, djvu, epub).
 
-Clustering Wikipedia pages (html)
-=================================
+Clustering Wikipedia pages
+==========================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories (biology, chemistry, mathematics, philosophy, physics).
 
 I will eventually build a larger dataset but for now I just wanted to test out some of the clustering algorithms as soon as possible but even with
