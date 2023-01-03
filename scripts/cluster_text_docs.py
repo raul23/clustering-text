@@ -200,7 +200,7 @@ if __name__ == '__main__':
     random_model = RandomModel(true_k)
     fit_and_evaluate(random_model, X_tfidf, name="RandomModel\non tf-idf vectors")
     score = metrics.accuracy_score(labels, random_model.labels_)
-    print(f"accuracy:   {score:.3}")
+    # print(f"accuracy:   {score:.3}")
 
     # Clustering sparse data with k-means
     print("\nClustering sparse data with k-means")
@@ -211,7 +211,7 @@ if __name__ == '__main__':
     )
     fit_and_evaluate(kmeans, X_tfidf, name="KMeans\non tf-idf vectors")
     score = metrics.accuracy_score(labels, kmeans.labels_)
-    print(f"accuracy:   {score:.3}")
+    # print(f"accuracy:   {score:.3}")
 
     # Performing dimensionality reduction using LSA
     print("\nPerforming dimensionality reduction using LSA")
@@ -231,7 +231,7 @@ if __name__ == '__main__':
     )
     fit_and_evaluate(kmeans, X_lsa, name="KMeans\nwith LSA on tf-idf vectors")
     score = metrics.accuracy_score(labels, kmeans.labels_)
-    print(f"accuracy:   {score:.3}")
+    # print(f"accuracy:   {score:.3}")
 
     print("\nMiniBatchKMeans with LSA on tf-idf vectors")
     minibatch_kmeans = MiniBatchKMeans(
@@ -246,7 +246,7 @@ if __name__ == '__main__':
         name="MiniBatchKMeans\nwith LSA on tf-idf vectors",
     )
     score = metrics.accuracy_score(labels, minibatch_kmeans.labels_)
-    print(f"accuracy:   {score:.3}")
+    # print(f"accuracy:   {score:.3}")
 
     print("\nTop terms per cluster")
     original_space_centroids = lsa[0].inverse_transform(kmeans.cluster_centers_)
@@ -275,7 +275,7 @@ if __name__ == '__main__':
     print("\nKMeans with LSA on hashed vectors")
     fit_and_evaluate(kmeans, X_hashed_lsa, name="KMeans\nwith LSA on hashed vectors")
     score = metrics.accuracy_score(labels, kmeans.labels_)
-    print(f"accuracy:   {score:.3}")
+    # print(f"accuracy:   {score:.3}")
 
     print("\nMiniBatchKMeans with LSA on hashed vectors")
     fit_and_evaluate(
@@ -284,7 +284,7 @@ if __name__ == '__main__':
         name="MiniBatchKMeans\nwith LSA on hashed vectors",
     )
     score = metrics.accuracy_score(labels, minibatch_kmeans.labels_)
-    print(f"accuracy:   {score:.3}")
+    # print(f"accuracy:   {score:.3}")
 
     # Clustering evaluation summary
     print("\nClustering evaluation summary")
