@@ -99,6 +99,18 @@ only randomly generates the labels for the Wikipedia pages:
    <p align="center"><img src="./images/results_clustering_html_pages.png">
    </p>
 
+Top terms per cluster
+---------------------
+
+.. code-block:: terminal
+
+   Cluster 0: probability language statistical reality realism events scale sample interpretation hypothesis 
+   Cluster 1: cell dna biology cells genes gene organisms bacteria population genetic 
+   Cluster 2: chemical chemistry equilibrium reaction bond gas atoms mathrm reactions compounds 
+   Cluster 3: relativity motion speed mathbf spacetime wave frame conservation waves charge 
+   Cluster 4: mathematics logic geometry algebra discrete reasoning mind numbers socratic descartes 
+
+
 Clustering ebooks (PDF, djvu, epub, txt)
 ========================================
 TODO
