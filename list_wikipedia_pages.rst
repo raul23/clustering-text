@@ -6,7 +6,7 @@ List of Wikipedia pages used for clustering
    :local:
    :backlinks: top
 
-`:information_source:` These are the documents composing the dataset upon which the `clustering algorithms 
+`:information_source:` These are the documents forming the dataset upon which the `clustering algorithms 
 <./README.rst#clustering-wikipedia-pages>`_ were tested on.
 
 Biology
