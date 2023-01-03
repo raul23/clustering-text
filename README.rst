@@ -40,7 +40,11 @@ The **size** for each category:
    n_samples: 70, n_features: 5474
    Sparsity: 0.166
 
-Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero.
+- Ignored terms: 
+
+  - if they appear in more than 50% of the documents
+  - if they are not present in at least 5 documents
+- Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero.
 
 Script ``cluster_text_docs.py``
 -------------------------------
