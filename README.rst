@@ -130,8 +130,8 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
    <p align="center"><img src="./images/results_clustering_html_pages_3.png">
    </p>
 
-Top terms per cluster
----------------------
+Top terms per cluster (Wikipedia pages)
+---------------------------------------
 The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
 
    Cluster 0: probability language statistical reality realism events scale sample interpretation hypothesis 
