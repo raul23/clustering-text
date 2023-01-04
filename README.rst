@@ -8,7 +8,11 @@ Experimenting with clustering text documents
    
 I am basing my experimentation with clustering text on the very great scikit-learn's tutorial: `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html>`_.
 
-I am following along their tutorial but using my own two datasets: Wikipedia pages (html) and a bunch of ebooks with different formats (pdf, djvu, epub).
+I am following along their tutorial but using my own two datasets: a bunch of ebooks with different formats (pdf, djvu, epub) and Wikipedia pages (html).
+
+Clustering ebooks (pdf, djvu, epub)
+===================================
+TODO
 
 Clustering Wikipedia pages
 ==========================
@@ -159,7 +163,3 @@ should be in the philosophy category and probability & statistical should be in 
  - `Socratic questioning <https://en.wikipedia.org/wiki/Socratic_questioning>`_: no mention of mathematics at all.
 
 The top words for the other clusters 1 to 3 (in particular cluster 1 with the biology-related words) are well choosen by KMeans.
-
-Clustering ebooks (pdf, djvu, epub)
-===================================
-TODO
