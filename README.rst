@@ -12,11 +12,44 @@ I am following along their tutorial but using my own two datasets: a bunch of eb
 
 Clustering ebooks (pdf, djvu)
 =============================
+The dataset of ebooks that I used to test clustering consist of 121 documents (pdf and djvu) from 3 categories
+
+- ``computer_science`` with label 0 and 47 ebooks
+- ``mathematics`` with label 1 and 46 ebooks
+- ``physics`` with label 2 and 28 ebooks
+
+.. code-block::
+
+   Feature Extraction using TfidfVectorizer
+   vectorization done in 4.851 s
+   n_samples: 121, n_features: 17025
+   Sparsity: 0.119
+
+- Ignored terms: 
+
+  - if they appear in more than 50% of the documents
+  - if they are not present in at least 5 documents
+- Around 11.9% of the entries of the ``X_tfidf`` matrix are non-zero
+
+Script ``cluster_text_docs.py``
+-------------------------------
+This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
+
+* **Platform:** macOS
+* **Python**: version **3.7**
+* `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for retrieving the only the text from an HTML page
+* `matplotlib <https://matplotlib.org/>`_: **v3.5.2** for generating graphs
+* `numpy <https://numpy.org/>`_: **v1.21.5**, for "array processing for numbers, strings, records, and objects"
+* `pandas <https://pandas.pydata.org/>`_: **v1.3.5**, "High-performance, easy-to-use data structures and data analysis tool" 
+* `scikit-learn <https://scikit-learn.org/>`_: **v1.0.2**, "a set of python modules for machine learning and data mining"
+
+**Ref.:** https://docs.anaconda.com/anaconda/packages/py3.7_osx-64/
+
 TODO
 
 Clustering Wikipedia pages
 ==========================
-The dataset of HTML pages is small: 70 Wikipedia pages from 5 different categories
+The dataset of HTML pages is small: 70 Wikipedia pages from 5 categories
 
 - ``biology`` with label 0
 - ``chemistry`` with label 1
