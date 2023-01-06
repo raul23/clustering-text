@@ -7,7 +7,7 @@ List of Wikipedia pages used for clustering
    :backlinks: top
 
 `:information_source:` These are the documents forming the dataset upon which the `clustering algorithms 
-<./README.rst#clustering-wikipedia-pages>`_ were tested on.
+<./README.rst#2-clustering-wikipedia-pages>`_ were tested on.
 
 Biology
 =======
