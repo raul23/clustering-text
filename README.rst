@@ -79,13 +79,20 @@ I won't list all options (too many) but here some of the important and interesti
 -u, --use-cache                        Highly recommended to use cache to speed up dataset re-creation.
 -t, --dataset-type DATASET_TYPE        Whether to cluster html pages or ebooks (pdf, djvu, epub). By default, 
                                        only HTML pages are clustered from within the specified directory. (default: html)
--o, --ocr-enabled {always,true,false}  Whether to enable OCR for .pdf, .djvu and image files. It is disabled by default. (default: false)
+-o, --ocr-enabled                      Whether to enable OCR for .pdf, .djvu and image files. It is disabled by default. (default: false)
 input_directory                        Path to the main directory containing the documents to cluster.
 
-By dataset **re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
-again. If you are using cache, then the dataset generation should be quick since the text converions were
-already computed and cached. Especially if you used OCR for some of the ebooks since this procedure is very
-resource intensive and can take awhile if many pages are OCRed.
+- By dataset **re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
+  again. If you are using cache, then the dataset generation should be quick since the text converions were
+  already computed and cached. Especially if you used OCR for some of the ebooks since this procedure is very
+  resource intensive and can take awhile if many pages are OCRed.
+- The choices for ``-o, --ocr-enabled`` are:
+  
+  - 'always': always use OCR first when doing text conversion. If the converson fails, then use the other simpler conversion tools
+    (``pdftotext`` and ``djvutxt``).
+  - 'true': first simpler conversion tools (``pdftotext`` and ``djvutxt``) will be used first and then if that conversion
+    failed to convert an ebook to ``txt`` or resulted in an empty file, the OCR method will be used.
+  - 'false': never use OCR, only use the other simpler conversion tools (``pdftotext`` and ``djvutxt``)
 
 Caching
 -------
