@@ -337,8 +337,8 @@ The dataset is saved as a pickle file under the main directory that you provided
 
 The next times the script is run, the dataset will be loaded from disk as long as you don't delete or move the pickle file saved directly under the main directory.
 
-Results of clustering ebooks (``pdf`` and ``djvu``)
----------------------------------------------------
+Results of clustering ebooks (``pdf`` and ``djvu``) ⭐
+------------------------------------------------------
 `:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
 randomly generates the `labels <#clustering-ebooks-pdf-djvu>`_ (from 0 to 2) for the ebooks:
 
@@ -477,8 +477,8 @@ The dataset is saved as a pickle file under the main directory that you provided
 
 The next times the script is run, the dataset will be loaded from disk as long as you don't delete or move the pickle file saved directly under the main directory.
 
-Results of clustering Wikipedia pages
--------------------------------------
+Results of clustering Wikipedia pages ⭐
+----------------------------------------
 `:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
 randomly generates the `labels <#clustering-wikipedia-pages>`_ (from 0 to 4) for the Wikipedia pages:
 
