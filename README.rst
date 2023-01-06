@@ -134,7 +134,7 @@ To show the number of items (i.e. texts from ebooks) for a **given cache**, the 
 
  $ python cluster_text_docs.py -n --cfe ~/.cluster_ebooks_test/
  
- Cache: /Users/nova/.cluster_ebooks_test/
+ Cache: ~/.cluster_ebooks_test/
  There are 138 items in cache
  
 `:information_source:`
@@ -148,7 +148,7 @@ If you don't specify a specific cache folder, then the default cache folder used
 
  $ python cluster_text_docs.py -n
  
- Cache: /Users/nova/.cluster_html
+ Cache: ~/.cluster_html
  There are 71 items in cache
 
 |
@@ -157,7 +157,7 @@ To show the number of items in cache for the default cache used for ebooks (i.e.
 
  $ python cluster_text_docs.py -n -t ebooks
 
- Cache: /Users/nova/.cluster_ebooks
+ Cache: ~/.cluster_ebooks
  There are 153 items in cache
 
 Remove items from a given cache
@@ -167,7 +167,7 @@ associated with the texts you want to remove since file hashes are used as keys 
 
  $ python cluster_text_docs.py -r 123 1234 --cfe ~/.cluster_ebooks_test/
  
- Removing keys from cache: /Users/nova/.cluster_ebooks_test/
+ Removing keys from cache: ~/.cluster_ebooks_test/
  Key=123 was not found in cache
  Key=1234 was not found in cache
  
@@ -179,6 +179,12 @@ associated with the texts you want to remove since file hashes are used as keys 
 
 Clear a given cache
 '''''''''''''''''''
+To clear a given cache, the options ``-c`` and ``--cfe`` are used::
+
+ $ python cluster_text_docs.py -c --cfe ~/.cluster_ebooks_test/ 
+ 
+ Clearing cache: ~/.cluster_ebooks_test/
+ Cache was already empty!
 
 Dataset generation
 """"""""""""""""""
