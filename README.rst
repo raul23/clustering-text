@@ -214,9 +214,11 @@ To start generating a dataset containing texts from ebooks, the option ``-t eboo
 
 OCR
 """
+TODO
 
 Updating dataset
 """"""""""""""""
+TODO
 
 Filtering
 """""""""
