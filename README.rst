@@ -370,7 +370,22 @@ Results at the end of applying OCR to all problematic ebooks (formed of images):
 
 Updating a dataset
 """"""""""""""""""
-TODO
+After a dataset is generated and saved, you can update it with new texts from more ebooks by using the ``--ud`` option::
+
+ $ python cluster_text_docs.py -t ebooks -u -o true --ud ~/Data/ebooks_test/
+
+.. raw:: html
+
+   <p align="left"><img src="./images/updating_dataset_ocr.png">
+   </p>
+   
+`:information_source:`
+
+ - ``--ud``: tells the script to update the dataset pickle file saved within the main ebooks directory (e.g. ``~/Data/ebooks_test/``).
+ - ``-o true``: apply OCR on those ebooks that couldn't be converted with simpler methods (``pdftotext`` and ``djvutxt``).
+ - ``-u``: use cache to avoid re-computing the text conversion for those ebooks that were already processed previously.
+ - ``-t ebooks``: tells the script that the input directory (e.g. ``~/Data/ebooks_test/``) should be search for
+   ``pdf`` and ``djvu`` ebooks to be added to the dataset.
 
 Filtering a dataset: select texts only in English and from valid categories
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
