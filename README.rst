@@ -8,28 +8,29 @@ Experimenting with clustering text documents
    
 I am basing my experimentation with clustering text on the very great scikit-learn's tutorial: `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html>`_.
 
-I am following along their tutorial but using my own two datasets: a bunch of ebooks with different formats (pdf, djvu) and Wikipedia pages (html).
+I am following along their tutorial but using my own two datasets: a bunch of ebooks with different formats (``pdf``, ``djvu``) and 
+Wikipedia pages (html).
 
-Clustering ebooks (pdf, djvu)
-=============================
-The dataset of ebooks that I used to test clustering consist of 121 documents (pdf and djvu) from 3 categories
+Clustering ebooks (``pdf``, ``djvu``)
+=====================================
+The dataset of ebooks that I used to test clustering consist of 129 documents (``pdf`` and ``djvu``) from 3 categories
 
-- ``computer_science`` with label 0 and 47 ebooks
-- ``mathematics`` with label 1 and 46 ebooks
-- ``physics`` with label 2 and 28 ebooks
+- ``computer_science`` with label 0 and 48 ebooks
+- ``mathematics`` with label 1 and 50 ebooks
+- ``physics`` with label 2 and 31 ebooks
 
 .. code-block::
 
    Feature Extraction using TfidfVectorizer
-   vectorization done in 4.851 s
-   n_samples: 121, n_features: 17025
-   Sparsity: 0.119
+   vectorization done in 1.043 s
+   n_samples: 129, n_features: 7884
+   Sparsity: 0.117
 
 - Ignored terms: 
 
   - if they appear in more than 50% of the documents
   - if they are not present in at least 5 documents
-- Around 11.9% of the entries of the ``X_tfidf`` matrix are non-zero
+- Around 11.7% of the entries of the ``X_tfidf`` matrix are non-zero
 
 Script ``cluster_text_docs.py``
 -------------------------------
@@ -41,11 +42,26 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 * `matplotlib <https://matplotlib.org/>`_: **v3.5.2** for generating graphs
 * `numpy <https://numpy.org/>`_: **v1.21.5**, for "array processing for numbers, strings, records, and objects"
 * `pandas <https://pandas.pydata.org/>`_: **v1.3.5**, "High-performance, easy-to-use data structures and data analysis tool" 
+* `pycld2 <https://github.com/aboSamoor/pycld2>`_: **v0.41**, for detecting the language of a given ebook in order to keep 
+  books based on chosen language
+* `regex <https://pypi.org/project/regex/>`_: **v2022.7.9**, "this regex implementation is backwards-compatible with 
+  the standard ``re`` module, but offers additional functionality."
 * `scikit-learn <https://scikit-learn.org/>`_: **v1.0.2**, "a set of python modules for machine learning and data mining"
 
 **Ref.:** https://docs.anaconda.com/anaconda/packages/py3.7_osx-64/
 
-TODO
+`:star:` Other dependencies:
+
+You also need recent versions of:
+
+-  `poppler <https://poppler.freedesktop.org/>`_ and `DjVuLibre <http://djvu.sourceforge.net/>`_ can be installed 
+  for conversion of ``.pdf`` and ``.djvu`` files respectively to ``.txt``.
+
+Optionally:
+
+- `diskcache <http://www.grantjenks.com/docs/diskcache/>`_: **v5.4.0** for caching persistently the converted files into ``txt``
+- `Tesseract <https://github.com/tesseract-ocr/tesseract>`_ for running OCR on books - version 4 gives 
+  better results. OCR is disabled by default since it is a slow resource-intensive process.
 
 Clustering Wikipedia pages
 ==========================
