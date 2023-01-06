@@ -320,7 +320,7 @@ Texts rejected for not being in English:
    
 |
 
-Texts rejected for being in the wrong category:
+Texts rejected for not being part of the specified categories (``computer_science``, ``mathematics``, ``physics``):
 
 .. raw:: html
 
