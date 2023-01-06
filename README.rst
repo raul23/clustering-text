@@ -172,7 +172,7 @@ To show the number of items (i.e. ebooks whose text was extracted) for a **given
 
 |
 
-If you don't specify a specific cache folder, then the default cache folder used for HTML pages (see the second part of this document about `clustering Wikipedia pages <#clustering-wikipedia-pages>`_) will be selected::
+If you don't specify a specific cache folder, then the default cache folder used for HTML pages (see the second part of this document about `clustering Wikipedia pages <#2-clustering-wikipedia-pages>`_) will be selected::
 
  $ python cluster_text_docs.py -n
  
@@ -244,7 +244,7 @@ To start generating a dataset containing texts from ebooks after you have setup 
 `:information_source:` Explaining the text conversion procedure
 
 - It is necessary to specify the type of dataset (``-t ebooks``) you want to generate because the script can also be used to `generate datasets
-  from HTMl pages <#clustering-wikipedia-pages>`_.
+  from HTMl pages <#2-clustering-wikipedia-pages>`_.
 - The script will try to convert each ebook to text by using ``pdftotext`` or ``djvutxt`` depending on the type of file.
 - By default, OCR is not used (``--ocr-enabled`` is set to 'false') since it is a very resource intensive procedure. The other
   simpler conversion methods (``pdftotext`` or ``djvutxt``) are used instead which are very quick and reliable in their text conversion of ebooks.
@@ -581,7 +581,7 @@ The next times the script is run, the dataset will be loaded from disk as long a
 Results of clustering Wikipedia pages ⭐
 ----------------------------------------
 `:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
-randomly generates the `labels <#clustering-wikipedia-pages>`_ (from 0 to 4) for the Wikipedia pages:
+randomly generates the `labels <#2-clustering-wikipedia-pages>`_ (from 0 to 4) for the Wikipedia pages:
 
 |
 
@@ -616,7 +616,7 @@ The 10 most influential words for each cluster according to the KMean algorithm 
    Cluster 3: relativity motion speed mathbf spacetime wave frame conservation waves charge 
    Cluster 4: mathematics logic geometry algebra discrete reasoning mind numbers socratic descartes 
 
-Recall the `true labels <#clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
+Recall the `true labels <#2-clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
 
 Thus we could infer the labels for each cluster found by KMeans:
 
