@@ -80,8 +80,8 @@ I won't list all options (too many) but here some of the important and interesti
 -t, --dataset-type DATASET_TYPE        Whether to cluster html pages or ebooks (``pdf`` and ``djvu``). By default, 
                                        only HTML pages are clustered from within the specified directory. (default: html)
 -o, --ocr-enabled                      Whether to enable OCR for ``pdf``, ``djvu`` and image files. It is disabled by default. (default: false)
-input_directory                        Path to the main directory containing the documents to cluster.
 
+- ``input_directory`` is the path to the main directory containing the documents to cluster.
 - By dataset **re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
   again. If you are using cache, then the dataset generation should be quick since the text converions were
   already computed and cached. Especially if you used OCR for some of the ebooks since this procedure is very
