@@ -305,7 +305,7 @@ Second time running the script with some of the text conversions already cached:
 
 |
 
-Warning message when a text conversion fails (e.g. the ebook is formed of images):
+Warning message shown when a text conversion fails (e.g. the ebook is formed of images):
 
 .. raw:: html
 
