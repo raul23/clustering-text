@@ -130,7 +130,7 @@ Caching
 
 Show number of items in a given cache
 '''''''''''''''''''''''''''''''''''''
-To show the number of items (i.e. texts from ebooks) for a given cache, the options ``-n`` and ``--cfe`` are used::
+To show the number of items (i.e. texts from ebooks) for a **given cache**, the options ``-n`` and ``--cfe`` are used::
 
  $ python cluster_text_docs.py -n --cfe ~/.cluster_ebooks_test/
  
@@ -162,6 +162,19 @@ To show the number of items in cache for the default cache used for ebooks (i.e.
 
 Remove items from a given cache
 '''''''''''''''''''''''''''''''
+To remove items (i.e. texts from ebooks) from a **given cache**, the options ``-r`` and ``--cfe`` are used::
+
+ $ python cluster_text_docs.py -r 123 1234 --cfe ~/.cluster_ebooks_test/
+ 
+ Removing keys from cache: /Users/nova/.cluster_ebooks_test/
+ Key=123 was not found in cache
+ Key=1234 was not found in cache
+ 
+`:information_source:`
+
+ - ``-r, --remove-keys KEY [KEY ...]``: Keys (MD5 hashes of ebooks) to be removed from the cache along with the 
+   texts associated with them. Thus be careful before deleting them.
+ - ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
 
 Clear a given cache
 '''''''''''''''''''
