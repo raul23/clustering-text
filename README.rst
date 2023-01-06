@@ -113,7 +113,7 @@ Caching
   
   You can also specify your own cache folder for 
   
-  - HTMl pages with the option ``--cfh PATH``
+  - HTML pages with the option ``--cfh PATH``
   - ebooks with the option ``--cfe PATH``
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
 - These hashes of ebooks (keys) are then mapped to a dictionary with the following structure:
@@ -125,11 +125,11 @@ Caching
     - ``convert_method`` is either ``djvutxt`` or ``pdftotext``
     - ``convert_only_percentage_ebook`` is the percentage of a given ebook that is converted to ``txt``
     - ``ocr_only_random_pages`` is the number of pages chosen randomly in the first 50% of a given ebook
-      that are OCRed
+      that will be OCRed
       
     e.g. djvutxt+15+3
     
-  - value: the extracted text based on the options mentioned in the key
+  - value: the extracted text based on the options mentioned in the associated key
   
   Hence, you can have multiple extracted texts associated with a given ebook with each of the text
   extraction based on different values of the options mentioned in the key.
