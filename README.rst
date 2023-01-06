@@ -144,7 +144,7 @@ To show the number of items (i.e. texts from ebooks) for a given cache, the opti
 
 |
 
-If you don't specify a specific cache folder, then the default cache used for HTML pages (see the second part of this document about `clustering Wikipedia pages <#clustering-wikipedia-pages>`_) will be selected::
+If you don't specify a specific cache folder, then the default cache folder used for HTML pages (see the second part of this document about `clustering Wikipedia pages <#clustering-wikipedia-pages>`_) will be selected::
 
  python cluster_text_docs.py -n
  
