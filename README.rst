@@ -231,7 +231,7 @@ For example:
 
 Then, you need to give the path to the main directory to the script, like this::
 
- $ python cluster_text_docs.py -t ebooks  ~/Data/ebooks/
+ $ python cluster_text_docs.py -t ebooks ~/Data/ebooks/
  
 The next section explains in details the generation of a dataset containing text from these ebooks.
 
@@ -252,8 +252,8 @@ To start generating a dataset containing texts from ebooks after you have setup 
   this percentage.
 - If the text conversion fails with the simpler tools ((``pdftotext`` or ``djvutxt``) because an ebook is composed of images 
   for example, then a warning message is printed suggesting you to use OCR which should be able to fix the problem but if too many ebooks
-  are images then it might not be practicable to use OCR in the next round of dataset generation.
-- The hash of each ebook is computed so as to avoid adding duplicates in the dataset. Also the hashes is used as keys in the cache if
+  are images then it might not be practicable to use OCR if updating the dataset afterward.
+- The hash of each ebook is computed so as to avoid adding duplicates in the dataset. Also the hashes are used as keys in the cache if
   caching is used (i.e. the option ``-u, --use-cache`` is enabled).
 
 |
@@ -305,7 +305,7 @@ Second time running the script with some of the text conversions already cached:
 
 |
 
-Warning message shown when a text conversion fails (e.g. the ebook is formed of images):
+Warning message shown when a text conversion fails (e.g. the ebook is made up of images):
 
 .. raw:: html
 
@@ -358,14 +358,14 @@ Loading a dataset and applying OCR to those ebooks that couldn't be converted to
 
 |
 
-Results at the end of applying OCR to all problematic ebooks (formed of images):
+Results at the end of applying OCR to all problematic ebooks (maded of images):
 
 .. raw:: html
 
    <p align="left"><img src="./images/updating_dataset_ocr_end_results.png">
    </p>
    
-`:information_source:` All 14 problematic ebooks (formed of images) were successfully converted to ``txt`` and added to the dataset and cache.
+`:information_source:` All 14 problematic ebooks (made up of images) were successfully converted to ``txt`` and added to the dataset and cache.
 
 Updating a dataset
 """"""""""""""""""
@@ -391,7 +391,7 @@ Filtering a dataset: select texts only in English and from valid categories
 After the dataset containing texts from ebooks is generated, the resulting dataset is filtered by removing text that is not English
 and not part of the specified categories (i.e. ``computer_science``, ``mathematics``, ``physics``).
 
-Here is a sample of an output from the script ``cluster_text_docs.py``::
+Here are some samples of output from the script ``cluster_text_docs.py``::
 
  python cluster_text_docs.py --cfe ~/.cluster_ebooks_test -t ebooks -u ~/Data/ebooks_test/ --verbose
  
