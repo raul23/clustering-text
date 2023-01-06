@@ -34,6 +34,8 @@ The dataset of ebooks that I used to test clustering consists of 129 ebooks (``p
 
 Script ``cluster_text_docs.py``
 -------------------------------
+Dependencies
+""""""""""""
 This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
 
 * **Platform:** macOS
@@ -64,6 +66,27 @@ Optionally:
 - `Tesseract <https://github.com/tesseract-ocr/tesseract>`_ for running OCR on books - version 4 gives 
   better results. OCR is disabled by default since it is a slow resource-intensive process.
 
+Script options for clustering ebooks
+""""""""""""""""""""""""""""""""""""
+To display the script's list of options and their descriptions::
+
+ $ python cluster_text_docs.py -h
+ usage: python cluster_text_docs.py [OPTIONS] {input_directory}
+
+I won't list all options (too many) but here some of the important and interesting ones:
+
+-s, --seed SEED                        Seed for numpy's and Python's random generators. (default: 123456)
+-u, --use-cache                        Highly recommended to use cache to speed up dataset re-creation.
+-t, --dataset-type DATASET_TYPE        Whether to cluster html pages or ebooks (pdf, djvu, epub). By default, 
+                                       only HTML pages are clustered from within the specified directory. (default: html)
+-o, --ocr-enabled {always,true,false}  Whether to enable OCR for .pdf, .djvu and image files. It is disabled by default. (default: false)
+input_directory                        Path to the main directory containing the documents to cluster.
+
+By dataset **re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
+again. If you are using cache, then the dataset generation should be quick since the text converions were
+already computed and cached. Especially if you used OCR for some of the ebooks since this procedure is very
+resource intensive and can take awhile if many pages are OCRed.
+
 Caching
 -------
 `:information_source:` About the caching option (``--use-cache``) supported by the script ``cluster_text_docs.py``
@@ -74,13 +97,12 @@ Caching
   backed cache library, is used by the ``cluster_text_docs.py`` script.
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
 
-
 `:warning:` Important things to keep in mind when using the caching option
 
 * When enabling the cache with the flag ``--use-cache``, the ``cluster_text_docs.py`` 
   script has to cache the converted ebooks (``txt``) if they were
   not already saved in previous runs. Therefore, the speed up of some of the
-  tasks (dataset creation and updating) will be seen in subsequent executions of the 
+  tasks (dataset re-creation and updating) will be seen in subsequent executions of the 
   script.
 * Keep in mind that caching has its caveats. For instance if a given ebook
   is modified (e.g. a page is deleted) then the ``cluster_text_docs.py`` 
