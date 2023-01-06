@@ -212,14 +212,15 @@ Clear a given cache
 '''''''''''''''''''
 To clear a given cache, the options ``-c`` and ``--cfe`` are used::
 
- $ python cluster_text_docs.py -c --cfe ~/.cluster_ebooks_test/ 
+ $ python cluster_text_docs.py -c ~/.cluster_ebooks_test/ 
  
  Clearing cache: ~/.cluster_ebooks_test/
  Cache was already empty!
  
 `:information_source:`
 
- - ``-c, --clear-cache``: Clear cache. Be careful before using this option since everything in cache will be deleted including the text conversions.
+ - ``-c, --clear-cache PATH``: Cache folder path to be cleared. Be careful before using this option since everything
+   in cache will be deleted including the text conversions.
  - ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
 
 Ebooks directory
