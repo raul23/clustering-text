@@ -137,8 +137,8 @@ To show the number of items (i.e. texts from ebooks) for a given cache, the opti
  
 `:information_source:`
 
-- ``-n, --number-items``: Shows number of items stored in cache.
-- ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
+ - ``-n, --number-items``: Shows number of items stored in cache.
+ - ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
 
 If you don't specify a specific cache folder, then the default cache used for HTML pages (see the second part of this document about `clustering Wikipedia pages <#clustering-wikipedia-pages>`_) will be selected::
 
