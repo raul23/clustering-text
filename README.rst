@@ -120,7 +120,7 @@ Caching
       
     e.g. djvutxt+15+3
     
-  - value: the extracted text
+  - value: the extracted text based on the options mentioned in the key
   
   Hence, you can have multiple extracted texts associated with a given ebook with each of this text
   extraction done based on different values of the options mentioned in the key.
