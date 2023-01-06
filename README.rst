@@ -244,8 +244,8 @@ OCR
 """
 TODO
 
-Updating dataset
-""""""""""""""""
+Updating a dataset
+""""""""""""""""""
 TODO
 
 Filtering
