@@ -282,7 +282,7 @@ The next times the script is run, the dataset will be loaded from disk as long a
 
 |
 
-Generating the ebooks dataset using cache (``-u`` option)::
+Generating the ebooks dataset using cache (``-u`` option) without OCR support (i.e. the ``-o`` option is not used)::
 
  $ python cluster_text_docs.py -t ebooks -u ~/Data/ebooks_test/
 
