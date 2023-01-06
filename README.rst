@@ -177,6 +177,8 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
  this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
  not always yield the same values.
 
+|
+
 +-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
 |                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
 +=========================+================+===========================+====================================+=============================================+====================================+=============================================+
