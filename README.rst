@@ -126,6 +126,15 @@ Caching
   by default it is the least-recently-stored eviction policy (check the
   ``--eviction-policy`` option).
 
+Show number of items in a given cache
+'''''''''''''''''''''''''''''''''''''
+
+Remove items from a given cache
+'''''''''''''''''''''''''''''''
+
+Clean a given cache
+'''''''''''''''''''
+
 Dataset generation
 """"""""""""""""""
 
