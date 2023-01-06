@@ -87,7 +87,7 @@ I won't list all options (too many) but here some of the important and interesti
 
 - ``input_directory`` is the path to the main directory containing the documents to cluster.
 - By **dataset re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
-  again. If you are using cache, then the dataset generation should be quick since the text converions were
+  again. If you are using cache, then the dataset generation should be quick since the text conversions were
   already computed and cached. Especially if you used OCR for some of the ebooks since this procedure is very
   resource intensive and can take awhile if many pages are OCRed.
 - The choices for ``-o, --ocr-enabled`` are ``{always, true, false}``
