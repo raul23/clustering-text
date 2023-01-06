@@ -138,7 +138,15 @@ For example:
 
 Then, you need to give the path to the main directory to the script, like this::
 
- $ python cluster_text_docs.py ~/Data/ebooks/
+ $ python cluster_text_docs.py ~/Data/ebooks/ -t ebooks
+
+`:warning:` When generating datasets from ebooks (instead of `datasets from HTML pages <#clustering-wikipedia-pages>`_ like in the second 
+part of this document), always use the ``-t ebooks`` option which tells the script that the input directory given contains
+ebooks and therefore should be search for these kinds of documents (``pdf`` and ``djvu``). When generating datasets from HTML 
+pages, you don't need to specify this option since by default the script treats the input directory as potentially
+containing HTML pages.
+
+|
 
 `:information_source:` The first time the script is run, the dataset of text (from ebooks) will be generated. This dataset is a `Bunch <https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html>`_ object (a dictionary-like object that allows you to access its values by keys or attributes) with the following structure:
 
@@ -170,7 +178,7 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
  The homogeneity, completeness and hence v-measure metrics do not yield a baseline with regards to random labeling: 
  this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
  not always yield the same values.
- 
+
 Clustering Wikipedia pages
 ==========================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 categories
