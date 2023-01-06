@@ -109,7 +109,7 @@ Caching
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
 - These hashes of ebooks (keys) are then mapped to a dictionary with the following structure:
 
-  - key: ``convert_method``+``convert_only_percentage_ebook``+``ocr_only_random_pages``
+  - key: ``convert_method`` + ``convert_only_percentage_ebook`` + ``ocr_only_random_pages``
   
     where 
     
