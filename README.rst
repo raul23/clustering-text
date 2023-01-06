@@ -128,6 +128,29 @@ Caching
 
 Show number of items in a given cache
 '''''''''''''''''''''''''''''''''''''
+To show the number of items (i.e. texts from ebooks) for a given cache, the options ``-n`` and ``--cfe`` are used::
+
+ $ python cluster_text_docs.py -n --cfe ~/.cluster_ebooks_test/
+ 
+ Cache: /Users/nova/.cluster_ebooks_test/
+ There are 138 items in cache
+ 
+`:information_source:`
+
+- ``-n, --number-items``: Shows number of items stored in cache.
+- ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
+
+If you don't specify a specific cache folder, then the default cache used for HTML pages (see the second part of this document about `clustering Wikipedia pages <#clustering-wikipedia-pages>`_) will be selected::
+
+ python cluster_text_docs.py -n
+ 
+ Cache: /Users/nova/.cluster_html
+ There are 71 items in cache
+
+To show the number of items in cache for the default cache used for ebooks (i.e. ``~/.cluster_ebooks/``), the option ``-t ebooks`` is used::
+
+ Cache: /Users/nova/.cluster_ebooks
+ There are 153 items in cache
 
 Remove items from a given cache
 '''''''''''''''''''''''''''''''
