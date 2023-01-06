@@ -64,6 +64,8 @@ Optionally:
 - `Tesseract <https://github.com/tesseract-ocr/tesseract>`_ for running OCR on books - version 4 gives 
   better results. OCR is disabled by default since it is a slow resource-intensive process.
 
+|
+
 `:information_source:` About the caching option
 
 - Cache is used to save the converted ebook files into ``txt`` to
