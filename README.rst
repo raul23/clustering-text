@@ -282,7 +282,7 @@ The next times the script is run, the dataset will be loaded from disk as long a
 
 |
 
-Generating the ebooks dataset using cache (``-u`` option) without OCR support (i.e. the ``-o`` option is not used)::
+Generating the ebooks dataset using cache (``-u`` option) without OCR support (i.e. the ``-o true`` option is not used)::
 
  $ python cluster_text_docs.py -t ebooks -u ~/Data/ebooks_test/
 
@@ -312,7 +312,7 @@ Warning message shown when a text conversion fails (e.g. the ebook is formed of 
    <p align="left"><img src="./images/dataset_generation_conversion_failed_use_ocr.png">
    </p>
    
-`:information_source:` The dataset generation can be re-run again after with the ``-o`` flag which enables the use of OCR for those
+`:information_source:` The dataset generation can be re-run again after with the ``-o true`` option which enables the use of OCR for those
 faulty ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``).
 
 |
@@ -336,7 +336,36 @@ added to the dataset and cache, books rejected and duplicates found
 
 OCR
 """
-TODO
+For those ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``), 
+you can run the dataset generation using the ``-o true`` and ``--ud`` options::
+
+ $ python cluster_text_docs.py -t ebooks -u -o true --ud ~/Data/ebooks_test/
+
+`:information_source:` 
+
+ - The ``--ud`` flag refers to the action of updating the dataset pickle file that was already saved within the main ebooks directory
+   (e.g. ``~/Data/ebooks_test/``)
+ - The OCR procedure is resource intensive, thus the conversion for those faulty ebooks might take longer than usual.
+
+|
+
+Loading a dataset and applying OCR to those ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``):
+
+ .. raw:: html
+
+   <p align="left"><img src="./images/updating_dataset_ocr.png">
+   </p>
+
+|
+
+Results at the end of applying OCR to all faulty ebooks:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/updating_dataset_ocr_end_results.png">
+   </p>
+   
+`:informaton_source:` All 14 faulty ebooks were successfully converted to ``txt`` and added to the dataset and cache.
 
 Updating a dataset
 """"""""""""""""""
