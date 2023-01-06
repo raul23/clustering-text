@@ -134,7 +134,7 @@ Caching
   Hence, you can have multiple extracted texts associated with a given ebook with each of the text
   extraction based on different values of the options mentioned in the key.
 
-- In the `case for HTML pages <#clustering-wikipedia-pages>`_, the hashes of these pages are directly mapped to extracted text.
+- In the `case for HTML pages <#2-clustering-wikipedia-pages>`_, the hashes of these pages are directly mapped to extracted text.
 
 |
 
