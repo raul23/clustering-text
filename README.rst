@@ -221,7 +221,7 @@ To clear a given cache, the options ``-c`` and ``--cfe`` are used::
 
 Ebooks directory
 """"""""""""""""
-`:warning:` In order to run the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_, you need first to have a main directory (e.g. ``./ebooks/``) with all the ebooks (``pdf`` and ``djvu``) you want to test clustering on. Each ebook should be in a folder whose name should correspond to the category of said page.
+`:warning:` In order to run the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_, you need first to have a main directory (e.g. ``./ebooks/``) with all the ebooks (``pdf`` and ``djvu``) you want to test clustering on. Each ebook should be in a folder whose name should correspond to the category of said ebook.
 
 For example:
 
