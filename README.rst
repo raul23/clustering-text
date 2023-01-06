@@ -352,7 +352,7 @@ you can run the dataset generation using the  ``--ud`` and ``-o true`` (enable O
 
  - The ``--ud`` flag refers to the action of updating the dataset pickle file that was already saved within the main ebooks directory
    (e.g. ``~/Data/ebooks_test/``)
- - ``-o true`` enables OCR. ``-o, --ocr-enabled`` can take three values: ``{always, true, false}``. See `Script options for clustering ebooks 
+ - ``-o true`` enables OCR. The choices for ``-o, --ocr-enabled`` are: ``{always, true, false}``. See `Script options for clustering ebooks 
    <#script-options-for-clustering-ebooks>`_ for an explanation on these values.
  - The OCR procedure is resource intensive, thus the conversion for those problematic ebooks might take longer than usual.
  - By default, OCR is applied on only 5 pages chosen randomly in the first 50% of a given ebook. This number is controlled by
