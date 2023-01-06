@@ -35,7 +35,9 @@ made of images, `OCR <#ocr>`_ is applied on 5 pages chosen randomly in the first
 - Around 11.7% of the entries of the ``X_tfidf`` matrix are non-zero
 
 To quickly check the clustering results which are surprisingly good considering the small dataset of ebook text: 
-`Results of clustering ebooks <#results-of-clustering-ebooks-pdf-and-djvu>`_
+
+- `Results of clustering ebooks <#results-of-clustering-ebooks-pdf-and-djvu>`_
+- `Top terms per cluster (ebooks) <#top-terms-per-cluster-ebooks>`_
 
 Script ``cluster_text_docs.py`` (part 1)
 ----------------------------------------
