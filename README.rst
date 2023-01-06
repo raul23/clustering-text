@@ -219,7 +219,7 @@ To clear a given cache, the option ``-c`` is used::
  
 `:information_source:`
 
- - ``-c, --clear-cache PATH``: Cache folder path to be cleared. Be careful before using this option since everything
+ - ``-c, --clear-cache PATH``: Path to the cache folder to be cleared. Be careful before using this option since everything
    in cache will be deleted including the text conversions.
  - ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
 
