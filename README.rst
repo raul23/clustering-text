@@ -153,7 +153,7 @@ If you don't specify a specific cache folder, then the default cache folder used
 
 |
 
-To show the number of items in cache for the default cache used for ebooks (i.e. ``~/.cluster_ebooks/``), the option ``-t ebooks`` is used::
+To show the number of items in the default cache used for ebooks (i.e. ``~/.cluster_ebooks/``), the option ``-t ebooks`` is used::
 
  $ python cluster_text_docs.py -n -t ebooks
 
