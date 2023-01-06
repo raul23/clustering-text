@@ -31,6 +31,9 @@ The dataset of ebooks that I used to test clustering consists of 129 ebooks (``p
   - if they are not present in at least 5 documents
 - Around 11.7% of the entries of the ``X_tfidf`` matrix are non-zero
 
+To quickly check the clustering results which are surprisingly good considering the small dataset of ebook text: 
+`Results of clustering ebooks<#results-of-clustering-ebooks-pdf-and-djvu>`_
+
 Script ``cluster_text_docs.py`` (part 1)
 ----------------------------------------
 Dependencies
