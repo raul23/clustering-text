@@ -171,6 +171,20 @@ Texts rejected for being in the wrong category:
    <p align="left"><img src="./images/filtering_rejected_politics.png">
    </p>
 
+|
+
+What it looks like in the terminal if the option ``--verbose`` is not mentioned: only the list of rejected texts is shown after the
+filtering is completed
+
+.. raw:: html
+
+   <p align="left"><img src="./images/filtering_no_verbose.png">
+   </p>
+
+`:information_source:` You will see in my list of ebooks that the text from the ebook ``abstract algebra.pdf`` was rejected even though it
+is an English mathematics ebook. ``pycld2`` detected it as not being in English because the text conversion didn't 100% succeeded and
+introduced too many odd characters (e.g. ``0ß Å ÞBð`` mixed with english words. It is the only ebook over 153 converted documents that has this problem.
+
 Ebooks dataset structure
 ------------------------
 `:warning:` In order to run the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_, you need first to have a main directory (e.g. ``./ebooks/``) with all the ebooks (``pdf`` and ``djvu``) you want to test clustering on. Each ebook should be in a folder whose name should correspond to the category of said page.
