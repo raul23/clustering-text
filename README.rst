@@ -188,7 +188,7 @@ To clear a given cache, the options ``-c`` and ``--cfe`` are used::
  
 `:information_source:`
 
- - ``-c, --clear-cache ``: Clear cache. Be careful before using this option since everything in cache will be deleted including the text conversions.
+ - ``-c, --clear-cache``: Clear cache. Be careful before using this option since everything in cache will be deleted including the text conversions.
  - ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
 
 Dataset generation
