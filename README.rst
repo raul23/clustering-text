@@ -21,8 +21,8 @@ The dataset of ebooks that I used to test clustering consists of 129 ebooks (``p
 .. code-block::
 
    Feature Extraction using TfidfVectorizer
-   vectorization done in 1.043 s
-   n_samples: 129, n_features: 7884
+   vectorization done in 1.406 s
+   n_samples: 129, n_features: 7909
    Sparsity: 0.117
 
 - Ignored terms: 
