@@ -45,7 +45,7 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 * `pycld2 <https://github.com/aboSamoor/pycld2>`_: **v0.41**, for detecting the language of a given ebook in order to keep 
   books based on a chosen language
 * `regex <https://pypi.org/project/regex/>`_: **v2022.7.9**, "this regex implementation is backwards-compatible with 
-  the standard ``re`` module, but offers additional functionality."
+  the standard ``re`` module, but offers additional functionality"
 * `scikit-learn <https://scikit-learn.org/>`_: **v1.0.2**, "a set of python modules for machine learning and data mining"
 
 **Ref.:** https://docs.anaconda.com/anaconda/packages/py3.7_osx-64/
