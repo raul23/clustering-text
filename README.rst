@@ -313,7 +313,7 @@ Warning message shown when a text conversion fails (e.g. the ebook is formed of 
    <p align="left"><img src="./images/dataset_generation_conversion_failed_use_ocr.png">
    </p>
    
-`:information_source:` The dataset generation can be re-run again after with the ``-o true`` option which enables the use of OCR for those
+`:information_source:` The dataset generation can be re-run again after with the ``-o true --ud`` options which enable the use of OCR for those
 problematic ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``).
 
 |
