@@ -66,13 +66,12 @@ Optionally:
 
 |
 
-`:information_source:` About the caching option
+`:information_source:` About the caching option (``--use-cache``) supported by the script ``cluster_text_docs.py``
 
 - Cache is used to save the converted ebook files into ``txt`` to
   avoid re-converting them which can be a time consuming process. 
   `DiskCache <http://www.grantjenks.com/docs/diskcache/>`_, a disk and file 
   backed cache library, is used by the ``cluster_text_docs.py`` script.
-- The script ``cluster_text_docs.py`` can use the cache with the ``--use-cache`` flag.
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
 
 
