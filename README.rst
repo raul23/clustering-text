@@ -32,8 +32,8 @@ The dataset of ebooks that I used to test clustering consists of 129 ebooks (``p
   - if they are not present in at least 5 documents
 - Around 11.7% of the entries of the ``X_tfidf`` matrix are non-zero
 
-Script ``cluster_text_docs.py``
--------------------------------
+Script ``cluster_text_docs.py`` (part 1)
+----------------------------------------
 Dependencies
 """"""""""""
 This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
@@ -192,8 +192,8 @@ The **size** for each category:
   - if they are not present in at least 5 documents
 - Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero
 
-Script ``cluster_text_docs.py``
--------------------------------
+Script ``cluster_text_docs.py`` (part 2)
+----------------------------------------
 This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
 
 * **Platform:** macOS
