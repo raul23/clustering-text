@@ -132,7 +132,7 @@ Show number of items in a given cache
 Remove items from a given cache
 '''''''''''''''''''''''''''''''
 
-Clean a given cache
+Clear a given cache
 '''''''''''''''''''
 
 Dataset generation
