@@ -108,6 +108,8 @@ Caching
   backed cache library, is used by the ``cluster_text_docs.py`` script.
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
 
+|
+
 `:warning:` Important things to keep in mind when using the caching option
 
 * When enabling the cache with the flag ``--use-cache``, the ``cluster_text_docs.py`` 
