@@ -80,6 +80,7 @@ I won't list all options (too many) but here some of the important and interesti
 -t, --dataset-type DATASET_TYPE        Whether to cluster html pages or ebooks (``pdf`` and ``djvu``). By default, 
                                        only HTML pages are clustered from within the specified directory. (default: html)
 -o, --ocr-enabled                      Whether to enable OCR for ``pdf``, ``djvu`` and image files. It is disabled by default. (default: false)
+--ud, --update-dataset                 Update dataset with text from more new ebooks found in the directory.
 
 |
 
