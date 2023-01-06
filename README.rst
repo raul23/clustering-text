@@ -155,20 +155,20 @@ Showing the categories that will be kept:
 
 |
 
-Texts rejected for being in the wrong category:
-
-.. raw:: html
-
-   <p align="left"><img src="./images/filtering_rejected_politics.png">
-   </p>
-
-|
-
 Texts rejected for not being in English:
 
 .. raw:: html
 
    <p align="left"><img src="./images/filtering_rejected_french_spanish.png">
+   </p>
+   
+|
+
+Texts rejected for being in the wrong category:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/filtering_rejected_politics.png">
    </p>
 
 Ebooks dataset structure
