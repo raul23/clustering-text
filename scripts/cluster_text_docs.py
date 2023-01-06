@@ -880,7 +880,7 @@ def setup_argparser():
              + get_default_message(CACHE_SIZE_LIMIT))
     mutual_cache_group = cache_group.add_mutually_exclusive_group()
     mutual_cache_group.add_argument(
-        '-c', '--clear-cache', dest='clear_cache', action='store_true',
+        '-c', '--clear-cache', dest='clear_cache', metavar='PATH', default=None,
         help='Clear cache. Be careful before using this option since everything in '
              'cache will be deleted including the text conversions.')
     mutual_cache_group.add_argument(
@@ -1544,6 +1544,8 @@ def main():
             cache_folder = args.cache_folder_ebooks
         elif args.cache_folder_html != CACHE_FOLDER_HTML:
             cache_folder = args.cache_folder_html
+        elif args.clear_cache:
+            cache_folder = args.clear_cache
         else:
             cache_folder = args.cache_folder_html if args.dataset_type == 'html' else args.cache_folder_ebooks
         # Actions
