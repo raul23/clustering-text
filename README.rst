@@ -57,7 +57,7 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 You also need recent versions of:
 
 -  `poppler <https://poppler.freedesktop.org/>`_ (including ``pdftotext``) and `DjVuLibre <http://djvu.sourceforge.net/>`_ (including ``djvutxt``)
-   can be installed for conversion of ``.pdf`` and ``.djvu`` files respectively to ``.txt``.
+   can be installed for conversion of ``.pdf`` and ``.djvu`` files to ``.txt``, respectively.
 
 Optionally:
 
