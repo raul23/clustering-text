@@ -83,7 +83,7 @@ I won't list all options (too many) but here some of the important and interesti
 
 |
 
-`:information_source:` Explaining some of these options/arguments
+`:information_source:` Explaining some important and interesting options/arguments
 
 - ``input_directory`` is the path to the main directory containing the documents to cluster.
 - By **dataset re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
