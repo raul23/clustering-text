@@ -344,7 +344,7 @@ added to the dataset and cache, books rejected and duplicates found
 OCR
 """
 For those ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``), 
-you can run the dataset generation using the ``-o true`` and ``--ud`` options::
+you can run the dataset generation using the  ``--ud`` and ``-o true`` (enable OCR) options::
 
  $ python cluster_text_docs.py -t ebooks -u -o true --ud ~/Data/ebooks_test/
 
