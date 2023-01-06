@@ -138,7 +138,7 @@ For example:
 
 Then, you need to give the path to the main directory to the script, like this::
 
- $ python cluster_text_docs.py ~/Data/ebooks/ -t ebooks
+ $ python cluster_text_docs.py ~/Data/ebooks/ -t ebooks --use-cache
 
 `:warning:` When generating datasets from ebooks (instead of `datasets from HTML pages <#clustering-wikipedia-pages>`_ like in the second 
 part of this document), always use the ``-t ebooks`` option which tells the script that the input directory given contains
