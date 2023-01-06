@@ -57,8 +57,8 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 
 You also need recent versions of:
 
--  `poppler <https://poppler.freedesktop.org/>`_ and `DjVuLibre <http://djvu.sourceforge.net/>`_ can be installed 
-   for conversion of ``.pdf`` and ``.djvu`` files respectively to ``.txt``.
+-  `poppler <https://poppler.freedesktop.org/>`_ (including ``pdftotext``) and `DjVuLibre <http://djvu.sourceforge.net/>`_ (including ``djvutxt``)
+   can be installed for conversion of ``.pdf`` and ``.djvu`` files respectively to ``.txt``.
 
 Optionally:
 
@@ -298,8 +298,7 @@ filtering is completed
    </p>
 
 `:information_source:` You will see in my list of ebooks that the text from the ebook ``abstract algebra.pdf`` was rejected even though it
-is from an English mathematics ebook. ``pycld2`` detected the text as not being in English because the text conversion didn't 100% succeeded and
-introduced too many odd characters (e.g. ``0ß Å ÞBð``) mixed with english words. It is the only ebook over 153 converted documents that has this problem.
+is from an English mathematics ebook. ``pycld2`` detected the text as not being in English because the text conversion (``pdftotext``) didn't 100% succeeded and introduced too many odd characters (e.g. ``0ß Å ÞBð``) mixed with english words. It is the only ebook over 153 converted documents that has this problem.
 
 Ebooks dataset structure
 ------------------------
