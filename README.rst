@@ -173,7 +173,7 @@ Texts rejected for being in the wrong category:
 
 |
 
-What it looks like in the terminal if the option ``--verbose`` is not mentioned: only the list of rejected texts is shown after the
+What it looks like in the terminal if the option ``--verbose`` is not used: only the list of rejected texts is shown after the
 filtering is completed
 
 .. raw:: html
