@@ -130,7 +130,7 @@ Caching
 
 Show number of items in a given cache
 '''''''''''''''''''''''''''''''''''''
-To show the number of items (i.e. texts from ebooks) for a **given cache**, the options ``-n`` and ``--cfe`` are used::
+To show the number of items (i.e. ebooks whose text was extracted) for a **given cache**, the options ``-n`` and ``--cfe`` are used::
 
  $ python cluster_text_docs.py -n --cfe ~/.cluster_ebooks_test/
  
