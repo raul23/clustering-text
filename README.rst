@@ -126,6 +126,51 @@ Caching
   by default it is the least-recently-stored eviction policy (check the
   ``--eviction-policy`` option).
 
+Dataset generation
+""""""""""""""""""
+
+Updating dataset
+""""""""""""""""
+
+Filtering
+"""""""""
+After the dataset containing text from ebooks is generated, the resulting dataset is filtered by removing text that is not English
+and not part of the specified categories (i.e. ``computer_science``, ``mathematics``, ``physics``).
+
+Here is a sample of an output from the script ``cluster_text_docs.py``::
+
+ python cluster_text_docs.py --cfe ~/.cluster_ebooks_test -t ebooks -u ~/Data/ebooks_test/ --verbose
+ 
+`:information_source:` Since the option ``--verbose`` is used, you will see more information printed in the terminal such as
+if the text is in English or its category.
+
+| 
+ 
+Showing the categories that will be kept:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/filtering_keeping_categories.png">
+   </p>
+
+|
+
+Texts rejected for being in the wrong category:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/filtering_rejected_politics.png">
+   </p>
+
+|
+
+Texts rejected for not being in English:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/filtering_rejected_french_spanish.png">
+   </p>
+
 Ebooks dataset structure
 ------------------------
 `:warning:` In order to run the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_, you need first to have a main directory (e.g. ``./ebooks/``) with all the ebooks (``pdf`` and ``djvu``) you want to test clustering on. Each ebook should be in a folder whose name should correspond to the category of said page.
