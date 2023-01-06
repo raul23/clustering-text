@@ -280,6 +280,60 @@ The dataset is saved as a pickle file under the main directory that you provided
 
 The next times the script is run, the dataset will be loaded from disk as long as you don't delete or move the pickle file saved directly under the main directory.
 
+|
+
+Generating the ebooks dataset using cache (``-t`` option)::
+
+ $ python cluster_text_docs.py -t ebooks -u ~/Data/ebooks_test/
+
+First time running the script with a cleared cache:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/dataset_generation_first_time_used_cache.png">
+   </p>
+
+|
+
+Second time running the script with some of the text conversions already cached:
+
+
+.. raw:: html
+
+   <p align="left"><img src="./images/dataset_generation_second_time_used_cache.png">
+   </p>
+
+|
+
+Warning message when a text conversion fails (e.g. the ebook is formed of images):
+
+.. raw:: html
+
+   <p align="left"><img src="./images/dataset_generation_conversion_failed_use_ocr.png">
+   </p>
+   
+`:information_source:` The dataset generation can be re-run again after with the ``-o`` flag which enables the use of OCR for those
+faulty ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``).
+
+|
+
+When a duplicate is found (based on MD5 hashes), the correponding ebook is not processed further:
+
+.. raw:: html
+
+   <p align="left"><img src="./images/dataset_generation_found_duplicate.png">
+   </p>
+
+|
+
+At the end of the dataset generation, some results are shown about the number of texts
+added to the dataset and cache, books rejected and duplicates found
+
+.. raw:: html
+
+   <p align="left"><img src="./images/dataset_generation_end_results.png">
+   </p>
+
 OCR
 """
 TODO
