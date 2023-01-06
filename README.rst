@@ -365,7 +365,7 @@ Results at the end of applying OCR to all faulty ebooks:
    <p align="left"><img src="./images/updating_dataset_ocr_end_results.png">
    </p>
    
-`:informaton_source:` All 14 faulty ebooks were successfully converted to ``txt`` and added to the dataset and cache.
+`:information_source:` All 14 faulty ebooks were successfully converted to ``txt`` and added to the dataset and cache.
 
 Updating a dataset
 """"""""""""""""""
