@@ -202,7 +202,25 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 
 Top terms per cluster (ebooks)
 ------------------------------
-TODO
+The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
+
+   Cluster 0: geometry riemann euclidean universe triangle euclid lines angle ab earth 
+   Cluster 1: quantum riemann zeta physics vector particle wave zeros hypothesis particles 
+   Cluster 2: algorithm algorithms programming code gcd input python programs integer mod
+
+Recall the `true labels <#clustering-ebooks-pdf-djvu>`_: computer_science, mathematics, physics.
+
+Thus we could infer the labels for each cluster found by KMeans:
+
+- Cluster 0: mathematics
+- Cluster 1: physics
+- Cluster 2: computer_science
+
+In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
+mathematics and physics categories as some words are misplaced such as universe & earth which
+should be in the physics category and riemann & zeta should be in the mathematics category.
+
+The top words for the other cluster (2) with the computer science related words are well choosen by KMeans.
 
 Clustering Wikipedia pages
 ==========================
