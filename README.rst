@@ -106,6 +106,15 @@ Caching
   avoid re-converting them which can be a time consuming process. 
   `DiskCache <http://www.grantjenks.com/docs/diskcache/>`_, a disk and file 
   backed cache library, is used by the ``cluster_text_docs.py`` script.
+- Two default cache folders are used:
+
+  - ``~/.cluster_html``: used when clustering HTML pages
+  - ``~/.cluster_ebooks``: used when clustering ebooks
+  
+  You can also specify your own cache folder for 
+  
+  - HTMl pages with the option ``--cfh PATH``
+  - ebooks with the option ``--cfe PATH``
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
 - These hashes of ebooks (keys) are then mapped to a dictionary with the following structure:
 
@@ -124,6 +133,8 @@ Caching
   
   Hence, you can have multiple extracted texts associated with a given ebook with each of the text
   extraction based on different values of the options mentioned in the key.
+
+- In the `case for HTML pages <#clustering-wikipedia-pages>`_, the hashes of these pages are directly mapped to extracted text.
 
 |
 
