@@ -210,7 +210,7 @@ associated with the texts you want to remove since file hashes are used as keys 
 
 Clear a given cache
 '''''''''''''''''''
-To clear a given cache, the options ``-c`` and ``--cfe`` are used::
+To clear a given cache, the option ``-c`` is used::
 
  $ python cluster_text_docs.py -c ~/.cluster_ebooks_test/ 
  
