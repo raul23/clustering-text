@@ -331,7 +331,7 @@ added to the dataset and cache, books rejected and duplicates found
 
 .. raw:: html
 
-   <p align="left"><img src="./images/dataset_generation_end_results.png">
+   <p align="left"><img src="./images/dataset_generation_end_results2.png">
    </p>
 
 OCR
