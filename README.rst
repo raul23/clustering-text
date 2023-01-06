@@ -162,7 +162,8 @@ To show the number of items in cache for the default cache used for ebooks (i.e.
 
 Remove items from a given cache
 '''''''''''''''''''''''''''''''
-To remove items (i.e. texts from ebooks) from a **given cache**, the options ``-r`` and ``--cfe`` are used::
+To remove items (i.e. texts from ebooks) from a **given cache**, the options ``-r`` and ``--cfe`` are used along with the corresponding hashes
+associated with the texts you want to remove since file hashes are used as keys for the cache::
 
  $ python cluster_text_docs.py -r 123 1234 --cfe ~/.cluster_ebooks_test/
  
