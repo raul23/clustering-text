@@ -298,7 +298,7 @@ filtering is completed
    </p>
 
 `:information_source:` You will see in my list of ebooks that the text from the ebook ``abstract algebra.pdf`` was rejected even though it
-is an English mathematics ebook. ``pycld2`` detected it as not being in English because the text conversion didn't 100% succeeded and
+is from an English mathematics ebook. ``pycld2`` detected the text as not being in English because the text conversion didn't 100% succeeded and
 introduced too many odd characters (e.g. ``0ß Å ÞBð``) mixed with english words. It is the only ebook over 153 converted documents that has this problem.
 
 Ebooks dataset structure
