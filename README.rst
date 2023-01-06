@@ -107,6 +107,23 @@ Caching
   `DiskCache <http://www.grantjenks.com/docs/diskcache/>`_, a disk and file 
   backed cache library, is used by the ``cluster_text_docs.py`` script.
 - The MD5 hashes of the ebook files are used as keys to the file-based cache.
+- These hashes of ebooks (keys) are then mapped to a dictionary with the following structure:
+
+  - key: ``convert_method``+``convert_only_percentage_ebook``+``ocr_only_random_pages``
+  
+    where 
+    
+    - ``convert_method`` is either ``djvutxt`` or ``pdftotext``
+    - ``convert_only_percentage_ebook`` is the percentage of a given ebook that is converted to ``txt``
+    - ``ocr_only_random_pages`` is the number of pages chosen randomly in the first 50% of a given ebook
+      that are OCRed
+      
+    e.g. djvutxt+15+3
+    
+  - value: the extracted text
+  
+  Hence, you can have multiple extracted texts associated with a given ebook with each of this text
+  extraction done based on different values of the options mentioned in the key.
 
 |
 
