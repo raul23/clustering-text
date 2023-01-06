@@ -11,8 +11,8 @@ I am basing my experimentation with clustering text on the very great scikit-lea
 I am following along their tutorial but using my own two datasets: a bunch of ebooks with different formats (``pdf``, ``djvu``) and 
 Wikipedia pages (html).
 
-1.Clustering ebooks (``pdf``, ``djvu``)
-=======================================
+1. Clustering ebooks (``pdf``, ``djvu``)
+========================================
 The dataset of ebooks that I used to test clustering consists of 129 ebooks (``pdf`` and ``djvu``) from 3 categories:
 
 - ``computer_science`` with label 0 and 48 ebooks
