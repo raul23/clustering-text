@@ -177,6 +177,10 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
  this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
  not always yield the same values.
 
+Top terms per cluster (ebooks)
+------------------------------
+TODO
+
 Clustering Wikipedia pages
 ==========================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 categories
