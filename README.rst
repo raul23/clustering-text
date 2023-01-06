@@ -313,7 +313,7 @@ Warning message shown when a text conversion fails (e.g. the ebook is formed of 
    </p>
    
 `:information_source:` The dataset generation can be re-run again after with the ``-o true`` option which enables the use of OCR for those
-faulty ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``).
+problematic ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``).
 
 |
 
@@ -345,7 +345,7 @@ you can run the dataset generation using the ``-o true`` and ``--ud`` options::
 
  - The ``--ud`` flag refers to the action of updating the dataset pickle file that was already saved within the main ebooks directory
    (e.g. ``~/Data/ebooks_test/``)
- - The OCR procedure is resource intensive, thus the conversion for those faulty ebooks might take longer than usual.
+ - The OCR procedure is resource intensive, thus the conversion for those problematic ebooks might take longer than usual.
 
 |
 
@@ -358,14 +358,14 @@ Loading a dataset and applying OCR to those ebooks that couldn't be converted to
 
 |
 
-Results at the end of applying OCR to all faulty ebooks:
+Results at the end of applying OCR to all problematic ebooks (formed of images):
 
 .. raw:: html
 
    <p align="left"><img src="./images/updating_dataset_ocr_end_results.png">
    </p>
    
-`:information_source:` All 14 faulty ebooks were successfully converted to ``txt`` and added to the dataset and cache.
+`:information_source:` All 14 problematic ebooks (formed of images) were successfully converted to ``txt`` and added to the dataset and cache.
 
 Updating a dataset
 """"""""""""""""""
