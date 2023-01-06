@@ -185,6 +185,11 @@ To clear a given cache, the options ``-c`` and ``--cfe`` are used::
  
  Clearing cache: ~/.cluster_ebooks_test/
  Cache was already empty!
+ 
+`:information_source:`
+
+ - ``-c, --clear-cache ``: Clear cache. Be careful before using this option since everything in cache will be deleted including the text conversions.
+ - ``--cfe, --cache-folder-ebooks PATH``: Cache folder for ebooks.
 
 Dataset generation
 """"""""""""""""""
