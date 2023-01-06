@@ -64,6 +64,34 @@ Optionally:
 - `Tesseract <https://github.com/tesseract-ocr/tesseract>`_ for running OCR on books - version 4 gives 
   better results. OCR is disabled by default since it is a slow resource-intensive process.
 
+`:information_source:` About the caching option
+
+- Cache is used to save the converted ebook files into ``txt`` to
+  avoid re-converting them which can be a time consuming process. 
+  `DiskCache <http://www.grantjenks.com/docs/diskcache/>`_, a disk and file 
+  backed cache library, is used by the ``cluster_text_docs.py`` script.
+- The script ``cluster_text_docs.py`` can use the cache with the ``--use-cache`` flag.
+- The MD5 hashes of the ebook files are used as keys to the file-based cache.
+
+
+`:warning:` Important things to keep in mind when using the caching option
+
+* When enabling the cache with the flag ``--use-cache``, the ``cluster_text_docs.py`` 
+  script has to cache the converted ebooks (``txt``) if they were
+  not already saved in previous runs. Therefore, the speed up of some of the
+  tasks (dataset creation and updating) will be seen in subsequent executions of the 
+  script.
+* Keep in mind that caching has its caveats. For instance if a given ebook
+  is modified (e.g. a page is deleted) then the ``cluster_text_docs.py`` 
+  script has to run the text conversion again since the keys in the cache are the MD5 hashes of
+  the ebooks.
+* There is no problem in the
+  cache growing without bounds since its size is set to a maximum of 1 GB by
+  default (check the ``--cache-size-limit`` option) and its eviction policy
+  determines what items get to be evicted to make space for more items which
+  by default it is the least-recently-stored eviction policy (check the
+  ``--eviction-policy`` option).
+
 Clustering Wikipedia pages
 ==========================
 The dataset of HTML pages is small: 70 Wikipedia pages from 5 categories
