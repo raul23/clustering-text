@@ -18,6 +18,9 @@ The dataset of ebooks that I used to test clustering consists of 129 ebooks (``p
 - ``mathematics`` with label 1 and 50 ebooks
 - ``physics`` with label 2 and 31 ebooks
 
+By default, only 10% of a given ebook is `converted to text <#dataset-generation>`_ and added to the dataset. Also if an ebook is 
+made of images, `OCR <#ocr>`_ is applied on 5 pages chosen randomly in the first 50% of the given ebook to extract the text.
+
 .. code-block::
 
    Feature Extraction using TfidfVectorizer
