@@ -134,7 +134,7 @@ Updating dataset
 
 Filtering
 """""""""
-After the dataset containing text from ebooks is generated, the resulting dataset is filtered by removing text that is not English
+After the dataset containing texts from ebooks is generated, the resulting dataset is filtered by removing text that is not English
 and not part of the specified categories (i.e. ``computer_science``, ``mathematics``, ``physics``).
 
 Here is a sample of an output from the script ``cluster_text_docs.py``::
