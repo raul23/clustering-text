@@ -76,7 +76,7 @@ To display the script's list of options and their descriptions::
 I won't list all options (too many) but here some of the important and interesting ones:
 
 -s, --seed SEED                        Seed for numpy's and Python's random generators. (default: 123456)
--u, --use-cache                        Highly recommended to use cache to speed up dataset re-creation.
+-u, --use-cache                        Highly recommended to use cache to speed up **dataset re-creation**.
 -t, --dataset-type DATASET_TYPE        Whether to cluster html pages or ebooks (``pdf`` and ``djvu``). By default, 
                                        only HTML pages are clustered from within the specified directory. (default: html)
 -o, --ocr-enabled                      Whether to enable OCR for ``pdf``, ``djvu`` and image files. It is disabled by default. (default: false)
@@ -86,7 +86,7 @@ I won't list all options (too many) but here some of the important and interesti
 `:information_source:` Explaining some of these options/arguments
 
 - ``input_directory`` is the path to the main directory containing the documents to cluster.
-- By dataset **re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
+- By **dataset re-creation** I mean what happens when you delete the pickle dataset file and generate the dataset 
   again. If you are using cache, then the dataset generation should be quick since the text converions were
   already computed and cached. Especially if you used OCR for some of the ebooks since this procedure is very
   resource intensive and can take awhile if many pages are OCRed.
