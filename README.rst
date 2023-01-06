@@ -140,10 +140,8 @@ Then, you need to give the path to the main directory to the script, like this::
 
  $ python cluster_text_docs.py ~/Data/ebooks/ -t ebooks --use-cache
 
-`:warning:` When generating datasets from ebooks (instead of `datasets from HTML pages <#clustering-wikipedia-pages>`_ like in the second 
-part of this document), always use the ``-t ebooks`` option which tells the script that the input directory given contains
-ebooks and therefore should be search for these kinds of documents (``pdf`` and ``djvu``). When generating datasets from HTML 
-pages, you don't need to specify this option since by default the script treats the input directory as potentially
+`:warning:` When generating datasets from ebooks (instead of datasets from HTML pages like in the `second part <#clustering-wikipedia-pages>`_ 
+of this document), always use the ``-t ebooks`` option which tells the script that the input directory given contains ebooks and therefore should be search for these kinds of documents (``pdf`` and ``djvu``). When generating datasets from HTML pages, you don't need to specify this option since by default the script treats the input directory as potentially
 containing HTML pages.
 
 |
