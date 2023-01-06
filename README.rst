@@ -13,7 +13,7 @@ Wikipedia pages (html).
 
 Clustering ebooks (``pdf``, ``djvu``)
 =====================================
-The dataset of ebooks that I used to test clustering consists of 129 documents (``pdf`` and ``djvu``) from 3 categories:
+The dataset of ebooks that I used to test clustering consists of 129 ebooks (``pdf`` and ``djvu``) from 3 categories:
 
 - ``computer_science`` with label 0 and 48 ebooks
 - ``mathematics`` with label 1 and 50 ebooks
