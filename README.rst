@@ -99,7 +99,7 @@ I won't list all options (too many) but here some of the important and interesti
   - 'false': never use OCR, only use the other simpler conversion tools (``pdftotext`` and ``djvutxt``)
 
 Caching
--------
+"""""""
 `:information_source:` About the caching option (``--use-cache``) supported by the script ``cluster_text_docs.py``
 
 - Cache is used to save the converted ebook files into ``txt`` to
