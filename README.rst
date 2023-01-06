@@ -193,6 +193,14 @@ To clear a given cache, the options ``-c`` and ``--cfe`` are used::
 
 Dataset generation
 """"""""""""""""""
+To start generating a dataset containing texts from ebooks, the option ``-t ebooks`` and the input directory are necessary::
+
+ $ python cluster_text_docs.py -t ebooks ~/Data/ebooks_test/
+ 
+`:information_source:`
+
+ - It is necessary to specify the type of dataset (``-t ebooks``) you want to generate because the script can also be used to `generate datasets
+   from HTMl pages <#clustering-wikipedia-pages>`_.
 
 Updating dataset
 """"""""""""""""
