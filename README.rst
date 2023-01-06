@@ -49,7 +49,9 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 
 **Ref.:** https://docs.anaconda.com/anaconda/packages/py3.7_osx-64/
 
-`:star:` Other dependencies:
+|
+
+`:star:` **Other dependencies**
 
 You also need recent versions of:
 
