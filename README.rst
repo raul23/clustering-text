@@ -288,8 +288,8 @@ Updating a dataset
 """"""""""""""""""
 TODO
 
-Filtering
-"""""""""
+Filtering a dataset: select texts only in English and from valid categories
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 After the dataset containing texts from ebooks is generated, the resulting dataset is filtered by removing text that is not English
 and not part of the specified categories (i.e. ``computer_science``, ``mathematics``, ``physics``).
 
