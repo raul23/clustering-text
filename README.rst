@@ -564,7 +564,7 @@ the three topics in consideration, those about computer science will tend to be 
 
 2. Clustering Wikipedia pages
 =============================
-The dataset of HTML pages is small: 70 Wikipedia pages from 5 categories
+The dataset of HTML pages is small: 71 Wikipedia pages from 5 categories
 
 - ``biology`` with label 0
 - ``chemistry`` with label 1
@@ -581,22 +581,21 @@ The **size** for each category:
 
 - Biology: 12
 - Chemistry: 12
-- Mathematics: 10
+- Mathematics: 11
 - Philosophy: 16
 - Physics: 20
 
 .. code-block::
 
-   Feature Extraction using TfidfVectorizer
-   vectorization done in 0.530 s
-   n_samples: 70, n_features: 5474
-   Sparsity: 0.166
+   vectorization done in 0.585 s
+   n_samples: 71, n_features: 5495
+   Sparsity: 0.164
 
 - Ignored terms: 
 
   - if they appear in more than 50% of the documents
   - if they are not present in at least 5 documents
-- Around 16.6% of the entries of the ``X_tfidf`` matrix are non-zero
+- Around 16.4% of the entries of the ``X_tfidf`` matrix are non-zero
 
 Script ``cluster_text_docs.py`` (part 2)
 ----------------------------------------
