@@ -1152,16 +1152,17 @@ class DatasetManager:
         with open(self.dataset_path, 'wb') as f:
             pickle.dump(self.dataset, f)
 
-    def shuffle_dataset(self):
-        idx = np.random.permutation(range(len(self.dataset.target)))
-        for attr in self.dataset.__dir__():
-            v = getattr(self.dataset, attr)
+    @staticmethod
+    def shuffle_dataset(dataset):
+        idx = np.random.permutation(range(len(dataset.target)))
+        for attr in dataset.__dir__():
+            v = getattr(dataset, attr)
             if len(v) != len(idx):
                 continue
             if isinstance(v, list):
-                setattr(self.dataset, attr,  list(np.array(v)[idx]))
+                setattr(dataset, attr,  list(np.array(v)[idx]))
             elif isinstance(v, np.ndarray):
-                setattr(self.dataset, attr, v[idx])
+                setattr(dataset, attr, v[idx])
 
     def _add_doc_to_dataset(self, filepath, text):
         self.dataset.data.append(text)
@@ -1361,7 +1362,7 @@ def cluster_text_docs(data_manager, categories=None):
     logger.debug(f'Total size of all ebooks in directory whose text were extracted: {int(total_size_mb)} MB')
 
     logger.info(blue('Shuffling dataset ...'))
-    data_manager.shuffle_dataset()
+    data_manager.shuffle_dataset(dataset)
     LABELS = dataset.target
     unique_labels, category_sizes = np.unique(LABELS, return_counts=True)
     true_k = unique_labels.shape[0]
