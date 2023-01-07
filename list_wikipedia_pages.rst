@@ -42,6 +42,7 @@ Chemistry
 Mathematics
 ===========
 - `Algebra <https://en.wikipedia.org/wiki/Algebra>`_
+- `Calculus <https://en.wikipedia.org/wiki/Calculus>`_
 - `Discrete mathematics <https://en.wikipedia.org/wiki/Discrete_mathematics>`_
 - `Geometry <https://en.wikipedia.org/wiki/Geometry>`_
 - `Mathematical analysis <https://en.wikipedia.org/wiki/Mathematical_analysis>`_
