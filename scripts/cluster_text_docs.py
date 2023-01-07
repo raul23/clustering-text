@@ -55,8 +55,6 @@ evaluations_std = []
 # ============
 QUIET = False
 SEED = 123456
-DATASET_TYPE = 'html'
-UPDATE_DATASET = False
 
 # Cache options
 # =============
@@ -69,6 +67,13 @@ CACHE_SIZE_LIMIT = 1
 CLEAR_CACHE = False
 REMOVE_KEYS = None
 CHECK_NUMBER_ITEMS = False
+
+# Dataset options
+# ===============
+DATASET_TYPE = 'html'
+UPDATE_DATASET = False
+CATEGORIES_EBOOKS = ['computer_science', 'mathematics', 'physics']
+CATEGORIES_HTML = ['biology', 'chemistry', 'mathematics', 'philosophy', 'physics']
 
 # Logging options
 # ===============
@@ -913,6 +918,12 @@ def setup_argparser():
     dataset_group.add_argument(
         '--ud', '--update-dataset', dest='update_dataset', action='store_true',
         help='Update dataset with text from more new ebooks found in the directory.')
+    dataset_group.add_argument(
+        '--cat', '--categories', metavar='CATEGORY', dest='categories',
+        nargs='+', default=None,
+        help='Only include these categories in the dataset. '
+             f"Default for HTML:  {COLORS['GREEN']}{CATEGORIES_HTML}{COLORS['NC']} "
+             f"Default for ebooks:  {COLORS['GREEN']}{CATEGORIES_EBOOKS}{COLORS['NC']}")
     # ===========
     # OCR options
     # ===========
@@ -1003,8 +1014,6 @@ class DatasetManager:
         assert kwargs['dataset_type'] in ['ebooks', 'html']
         self.input_directory = None
         self.seed = 123456
-        self.dataset_type = DATASET_TYPE
-        self.update_dataset = UPDATE_DATASET
         # Cache options
         self.use_cache = USE_CACHE
         self.cache_folder_ebooks = CACHE_FOLDER_EBOOKS
@@ -1020,6 +1029,9 @@ class DatasetManager:
         self.epub_convert_method = EPUB_CONVERT_METHOD
         self.msword_convert_method = MSWORD_CONVERT_METHOD
         self.pdf_convert_method = PDF_CONVERT_METHOD
+        # Dataset options
+        self.dataset_type = DATASET_TYPE
+        self.update_dataset = UPDATE_DATASET
         # OCR options
         self.ocr_enabled = OCR_ENABLED
         self.ocr_only_random_pages = OCR_ONLY_RANDOM_PAGES
@@ -1334,12 +1346,12 @@ class DatasetManager:
                 self.dataset = pickle.load(f)
 
 
-def cluster_text_docs(data_manager):
+def cluster_text_docs(data_manager, categories=None):
     global LABELS
 
-    if data_manager.dataset_type == 'ebooks':
+    if data_manager.categories:
         logger.info(blue('Filtering dataset ...'))
-        dataset = data_manager.filter_dataset(categories_to_keep=['computer_science', 'mathematics', 'physics'])
+        dataset = data_manager.filter_dataset(categories_to_keep=categories)
     else:
         dataset = data_manager.dataset
 
@@ -1557,7 +1569,14 @@ def main():
             DatasetManager.remove_keys_from_cache(cache_folder, args.remove_keys)
         elif args.input_directory:
             data_manager = DatasetManager(**namespace_to_dict(args))
-            exit_code = cluster_text_docs(data_manager)
+            if args.categories is None:
+                if args.dataset_type == 'html':
+                    categories = CATEGORIES_HTML
+                else:
+                    categories = CATEGORIES_EBOOKS
+            else:
+                categories = args.categories
+            exit_code = cluster_text_docs(data_manager, categories)
         else:
             logger.warning(yellow('Missing input directory'))
             exit_code = 3
