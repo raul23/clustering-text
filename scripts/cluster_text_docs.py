@@ -1349,7 +1349,7 @@ class DatasetManager:
 def cluster_text_docs(data_manager, categories=None):
     global LABELS
 
-    if data_manager.categories:
+    if categories:
         logger.info(blue('Filtering dataset ...'))
         dataset = data_manager.filter_dataset(categories_to_keep=categories)
     else:
