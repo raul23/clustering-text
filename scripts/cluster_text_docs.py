@@ -22,6 +22,8 @@ from types import SimpleNamespace
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import pycld2
+import regex
 from sklearn import metrics
 from sklearn.cluster import KMeans, MiniBatchKMeans
 from sklearn.decomposition import TruncatedSVD
@@ -33,9 +35,7 @@ from sklearn.utils import Bunch
 BeautifulSoup = None
 Cache = None
 nltk = None
-pycld2 = None
-RE_BAD_CHARS = None
-regex = None
+RE_BAD_CHARS = regex.compile(r"[\p{Cc}\p{Cs}]+")
 
 logger = logging.getLogger('clustering')
 __version__ = '0.1'
@@ -618,21 +618,15 @@ def get_pages_in_pdf(file_path, cmd='mdls'):
 
 
 def import_modules(dataset_type='html', english_detector='pycld2', use_cache=False):
-    global BeautifulSoup, Cache, ENGLISH_VOCAB, nltk, pycld2, RE_BAD_CHARS, regex
+    global BeautifulSoup, Cache, ENGLISH_VOCAB, nltk
     if dataset_type == 'html':
         logger.debug('importing BeautifulSoup')
         from bs4 import BeautifulSoup
     else:
-        logger.debug('importing regex')
-        import regex
-        RE_BAD_CHARS = regex.compile(r"[\p{Cc}\p{Cs}]+")
         if english_detector == 'nltk':
             logger.debug('importing nltk')
             import nltk
             ENGLISH_VOCAB = set(w.lower() for w in nltk.corpus.words.words())
-        elif english_detector == 'pycld2':
-            logger.debug('importing pycld2')
-            import pycld2
     if use_cache:
         logger.debug('importing diskcache')
         from diskcache import Cache
@@ -1350,16 +1344,8 @@ class DatasetManager:
 def cluster_text_docs(data_manager, categories=None):
     global LABELS
 
-    if categories:
-        logger.info(blue('Filtering dataset ...'))
-        dataset = data_manager.filter_dataset(categories_to_keep=categories)
-    else:
-        dataset = data_manager.dataset
-
-    total_size_mb = 0
-    for filepath in dataset.filenames:
-        total_size_mb += get_file_size(filepath)
-    logger.debug(f'Total size of all ebooks in directory whose text were extracted: {int(total_size_mb)} MB')
+    logger.info(blue('Filtering dataset ...'))
+    dataset = data_manager.filter_dataset(categories_to_keep=categories)
 
     logger.info(blue('Shuffling dataset ...'))
     data_manager.shuffle_dataset(dataset)
@@ -1420,7 +1406,7 @@ def cluster_text_docs(data_manager, categories=None):
     logger.info("# =============================================")
     logger.info("# Performing dimensionality reduction using LSA")
     logger.info("# =============================================")
-    lsa = make_pipeline(TruncatedSVD(n_components=100), Normalizer(copy=False))
+    lsa = make_pipeline(TruncatedSVD(n_components=99), Normalizer(copy=False))
     t0 = time()
     X_lsa = lsa.fit_transform(X_tfidf)
     explained_variance = lsa[0].explained_variance_ratio_.sum()
