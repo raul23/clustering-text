@@ -512,8 +512,9 @@ Thus we could infer the labels for each cluster found by KMeans:
 - Cluster 2: computer_science
 
 In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
-mathematics and physics categories as some words are misplaced such as universe & earth which
-should be in the physics category and riemann & zeta should be in the mathematics category.
+**mathematics** and **physics** categories as some words are misplaced such as universe & earth which
+should be in the physics category and riemann & zeta should be in the mathematics category. This is not that surprising since
+there a lot of overlaps between both topics.
 
 The top words for the other cluster (2) with the computer science related words are well choosen by KMeans.
 
