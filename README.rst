@@ -506,7 +506,7 @@ Though for unknown reasons (I don't know exactly what changed in the code), I do
 I only got it at first but now it is only the segmentation fault error that I keep getting.
 
 Both errors happened exactly when shuffling the dataset and using eactly 100 compnents for 
-``TruncatedSVD`` (when performing dimensionality reduction using LSA):
+``TruncatedSVD`` (while performing dimensionality reduction using LSA):
 
 .. code-block:: python
 
