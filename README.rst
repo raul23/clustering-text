@@ -495,11 +495,44 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
    <p align="center"><img src="./images/results_clustering_ebooks2.png">
    </p>
 
-.. Illegal instruction: 4 
-.. Segmentation fault: 11
-.. shuffling
-.. n_components=100
-.. X_lsa = lsa.fit_transform(X_tfidf)
+|
+
+`:warning:` While computing these results I ran into two errors that were memory-related:
+
+- ``Illegal instruction: 4``
+- ``Segmentation fault: 11``
+
+Both errors happened exactly when shuffling the dataset and using eactly 100 compnents for 
+``TruncatedSVD`` (when performing dimensionality reduction using LSA):
+
+.. code-block:: python
+
+   data_manager.shuffle_dataset(dataset)
+   lsa = make_pipeline(TruncatedSVD(n_components=100), Normalizer(copy=False))
+   X_lsa = lsa.fit_transform(X_tfidf)
+
+If I use 101 or less than 100 components, I don't get these memory-related errors. Maybe
+the way I do the shuffling of the dataset consumes too much memory but it is still odd
+that if I use exactly 100 components for ``TruncatedSVD``, I get ``Segmentation fault: 11``.
+
+However, later in the code, when hashed vectors are computed, I use 100 components for 
+``TruncatedSVD`` and I don't get any error with this part of the code:
+
+.. code-block:: python
+
+   lsa_vectorizer = make_pipeline(
+        HashingVectorizer(stop_words="english", n_features=50_000),
+        TfidfTransformer(),
+        TruncatedSVD(n_components=100, random_state=0),
+        Normalizer(copy=False),
+    )
+
+Thus the **solution** is to not use 100 components for ``TruncatedSVD`` when performing
+dimensionality reduction using LSA:
+
+.. code-block:: python
+
+   lsa = make_pipeline(TruncatedSVD(n_components=99), Normalizer(copy=False))
 
 Top terms per cluster (ebooks)
 ------------------------------
