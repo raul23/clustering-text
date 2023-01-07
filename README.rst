@@ -611,10 +611,18 @@ This is the environment on which the script `cluster_text_docs.py <./scripts/clu
 * `beautifulsoup4 <https://www.crummy.com/software/BeautifulSoup/>`_: **v4.11.1**, for retrieving the only the text from an HTML page
 * `matplotlib <https://matplotlib.org/>`_: **v3.5.2** for generating graphs
 * `numpy <https://numpy.org/>`_: **v1.21.5**, for "array processing for numbers, strings, records, and objects"
-* `pandas <https://pandas.pydata.org/>`_: **v1.3.5**, "High-performance, easy-to-use data structures and data analysis tool" 
+* `pandas <https://pandas.pydata.org/>`_: **v1.3.5**, "High-performance, easy-to-use data structures and data analysis tool"
+* `pycld2 <https://github.com/aboSamoor/pycld2>`_: **v0.41**, for detecting the language of a given ebook in order to keep 
+  books based on a chosen language
+* `regex <https://pypi.org/project/regex/>`_: **v2022.7.9**, "this regex implementation is backwards-compatible with 
+  the standard ``re`` module, but offers additional functionality"
 * `scikit-learn <https://scikit-learn.org/>`_: **v1.0.2**, "a set of python modules for machine learning and data mining"
 
 **Ref.:** https://docs.anaconda.com/anaconda/packages/py3.7_osx-64/
+
+Optionally:
+
+- `diskcache <http://www.grantjenks.com/docs/diskcache/>`_: **v5.4.0** for caching persistently the converted files into ``txt``
 
 Wikipedia directory 
 -------------------
