@@ -24,8 +24,8 @@ made of images, `OCR <#ocr>`_ is applied on 5 pages chosen randomly in the first
 .. code-block::
 
    Feature Extraction using TfidfVectorizer
-   vectorization done in 1.043 s
-   n_samples: 129, n_features: 7884
+   vectorization done in 1.414 s
+   n_samples: 129, n_features: 7909
    Sparsity: 0.117
 
 - Ignored terms: 
@@ -477,46 +477,48 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 +-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
 |                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
 +=========================+================+===========================+====================================+=============================================+====================================+=============================================+
-| Time                    | 0.01 ± 0.00 s  | 0.11 ± 0.01 s             | 0.00 ± 0.00 s                      | 0.04 ± 0.02 s                               | 0.01 ± 0.00 s                      | 0.04 ± 0.00 s                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Homogeneity             | 0.018 ± 0.011  | 0.564 ± 0.085             | 0.486 ± 0.070                      | 0.449 ± 0.131                               | 0.531 ± 0.152                      | 0.491 ± 0.135                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Completeness            | 0.017 ± 0.011  | 0.598 ± 0.074             | 0.496 ± 0.084                      | 0.466 ± 0.116                               | 0.579 ± 0.144                      | 0.543 ± 0.116                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| V-measure               | 0.017 ± 0.011  | 0.580 ± 0.080             | 0.491 ± 0.077                      | 0.457 ± 0.124                               | 0.553 ± 0.147                      | 0.515 ± 0.126                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Adjusted Rand-Index     | 0.005 ± 0.014  | 0.523 ± 0.107             | 0.450 ± 0.060                      | 0.401 ± 0.177                               | 0.479 ± 0.185                      | 0.451 ± 0.171                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Silhouette Coefficient  | -0.004 ± 0.001 | 0.049 ± 0.003             | 0.048 ± 0.008                      | 0.051 ± 0.003                               | 0.051 ± 0.004                      | 0.051 ± 0.002                               |
+| Time                    | 0.00 ± 0.00 s  | 0.12 ± 0.01 s             | 0.01 ± 0.00 s                      | 0.05 ± 0.03 s                               | 0.00 ± 0.00 s                      | 0.05 ± 0.01 s                               |
+| Homogeneity             | 0.010 ± 0.06   | 0.510 ± 0.152             | 0.514 ± 0.172                      | 0.519 ± 0.093                               | 0.555 ± 0.230                      | 0.494 ± 0.201                               |
+| Completeness            | 0.010 ± 0.06   | 0.570 ± 0.120             | 0.536 ± 0.145                      | 0.583 ± 0.080                               | 0.586 ± 0.188                      | 0.560 ± 0.149                               |
+| V-measure               | 0.010 ± 0.06   | 0.537 ± 0.138             | 0.524 ± 0.159                      | 0.547 ± 0.081                               | 0.567 ± 0.213                      | 0.517 ± 0.184                               |
+| Adjusted Rand-Index     | -0.006 ± 0.006 | 0.437 ± 0.184             | 0.455 ± 0.227                      | 0.472 ± 0.090                               | 0.538 ± 0.279                      | 0.465 ± 0.239                               |
+| Silhouette Coefficient  | -0.005 ± 0.001 | 0.049 ± 0.003             | 0.046 ± 0.010                      | 0.044 ± 0.010                               | 0.038 ± 0.010                      | 0.039 ± 0.008                               |
 +-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
 
 .. raw:: html
 
-   <p align="center"><img src="./images/results_clustering_ebooks.png">
+   <p align="center"><img src="./images/results_clustering_ebooks2.png">
    </p>
+
+.. Illegal instruction: 4 
+.. Segmentation fault: 11
+.. shuffling
+.. n_components=100
+.. X_lsa = lsa.fit_transform(X_tfidf)
 
 Top terms per cluster (ebooks)
 ------------------------------
 The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
 
-   Cluster 0: geometry riemann euclidean universe triangle euclid lines angle ab earth 
-   Cluster 1: quantum riemann zeta physics vector particle wave zeros hypothesis particles 
-   Cluster 2: algorithm algorithms programming code gcd input python programs integer mod
+   Cluster 0: geometry quantum universe physics light energy euclidean triangle relativity earth 
+   Cluster 1: riemann zeta hypothesis prime zeros formula primes log analytic dirichlet 
+   Cluster 2: algorithm algorithms programming code gcd input integer python programs integers
 
 Recall the `true labels <#clustering-ebooks-pdf-djvu>`_: computer_science, mathematics, physics.
 
 Thus we could infer the labels for each cluster found by KMeans:
 
-- Cluster 0: mathematics
-- Cluster 1: physics
+- Cluster 0: physics
+- Cluster 1: mathematics
 - Cluster 2: computer_science
 
-In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
-**mathematics** and **physics** categories as some words are misplaced such as universe & earth which
-should be in the physics category and riemann & zeta should be in the mathematics category. This is not that surprising since
-there a lot of overlaps between both topics.
+In general, the top terms for each cluster are well selected by the KMeans algorithm. There are some words
+in the mathematics and physics categories that could have been found in either group (e.g. geometry, euclidean, 
+formula) since there are a lot of overlaps between both topics. 
 
-The top words for the other cluster (2) with the computer science related words are well choosen by KMeans.
+On the other hand, the last cluster (2) has top words that are strongly associated to the computer science
+domain and that are not often found in the other topics (mathematics or physics). Thus among books from
+the three topics in consideration, those about computer science will tend to be easier to cluster together.
 
 2. Clustering Wikipedia pages
 =============================
@@ -608,54 +610,39 @@ randomly generates the `labels <#2-clustering-wikipedia-pages>`_ (from 0 to 4) f
 +-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
 |                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
 +=========================+================+===========================+====================================+=============================================+====================================+=============================================+
-| Time                    | 0.00 ± 0.00 s  | 0.10 ± 0.00 s             | 0.00 ± 0.00 s                      | 0.05 ± 0.02 s                               | 0.00 ± 0.00 s                      | 0.03 ± 0.00 s                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Homogeneity             | 0.112 ± 0.035  | 0.591 ± 0.066             | 0.587 ± 0.063                      | 0.513 ± 0.073                               | 0.556 ± 0.093                      | 0.527 ± 0.114                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Completeness            | 0.111 ± 0.035  | 0.610 ± 0.050             | 0.605 ± 0.060                      | 0.591 ± 0.030                               | 0.578 ± 0.093                      | 0.597 ± 0.088                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| V-measure               | 0.112 ± 0.035  | 0.600 ± 0.057             | 0.596 ± 0.062                      | 0.548 ± 0.054                               | 0.566 ± 0.092                      | 0.559 ± 0.104                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Adjusted Rand-Index     | 0.019 ± 0.025  | 0.477 ± 0.082             | 0.450 ± 0.095                      | 0.394 ± 0.119                               | 0.429 ± 0.094                      | 0.382 ± 0.121                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Silhouette Coefficient  | -0.012 ± 0.001 | 0.047 ± 0.007             | 0.043 ± 0.010                      | 0.040 ± 0.011                               | 0.034 ± 0.006                      | 0.028 ± 0.023                               |
+| Time                    | 0.00 ± 0.00 s  | 0.12 ± 0.01 s             | 0.01 ± 0.00 s                      | 0.07 ± 0.03 s                               | 0.01 ± 0.00 s                      | 0.05 ± 0.01 s                               |
+| Homogeneity             | 0.085 ± 0.016  | 0.636 ± 0.028             | 0.605 ± 0.093                      | 0.523 ± 0.120                               | 0.516 ± 0.097                      | 0.560 ± 0.127                               |
+| Completeness            | 0.085 ± 0.016  | 0.646 ± 0.030             | 0.621 ± 0.087                      | 0.589 ± 0.113                               | 0.561 ± 0.092                      | 0.639 ± 0.118                               |
+| V-measure               | 0.085 ± 0.016  | 0.641 ± 0.029             | 0.613 ± 0.090                      | 0.553 ± 0.117                               | 0.538 ± 0.095                      | 0.596 ± 0.122                               |
+| Adjusted Rand-Index     | -0.004 ± 0.004 | 0.494 ± 0.037             | 0.477 ± 0.094                      | 0.401 ± 0.161                               | 0.400 ± 0.079                      | 0.445 ± 0.152                               |
+| Silhouette Coefficient  | -0.014 ± 0.002 | 0.050 ± 0.002             | 0.042 ± 0.007                      | 0.038 ± 0.011                               | 0.031 ± 0.009                      | 0.032 ± 0.016                               |
 +-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
 
 .. raw:: html
 
-   <p align="center"><img src="./images/results_clustering_html_pages_3.png">
+   <p align="center"><img src="./images/results_clustering_html_pages_4.png">
    </p>
 
 Top terms per cluster (Wikipedia pages)
 ---------------------------------------
 The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
 
-   Cluster 0: probability language statistical reality realism events scale sample interpretation hypothesis 
-   Cluster 1: cell dna biology cells genes gene organisms bacteria population genetic 
-   Cluster 2: chemical chemistry equilibrium reaction bond gas atoms mathrm reactions compounds 
-   Cluster 3: relativity motion speed mathbf spacetime wave frame conservation waves charge 
-   Cluster 4: mathematics logic geometry algebra discrete reasoning mind numbers socratic descartes 
+   Cluster 0: cell dna biology cells genes gene organisms population bacteria genetic 
+   Cluster 1: relativity speed motion statistical events language probability mind wave reality 
+   Cluster 2: mathematics logic geometry calculus algebra discrete algebraic action equations arithmetic 
+   Cluster 3: chemistry chemical bond bonds reaction hydrogen reactions compounds acid redox 
+   Cluster 4: conservation mathrm equilibrium gas charge nuclear atomic chemical pressure particles
 
 Recall the `true labels <#2-clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
 
 Thus we could infer the labels for each cluster found by KMeans:
 
-- Cluster 0: philosophy
-- Cluster 1: biology
-- Cluster 2: chemistry
-- Cluster 3: physics
-- Cluster 4: mathematics
+- Cluster 0: biology
+- Cluster 1: philosophy? or overlap between  mathematics, philosophy and physics?
+- Cluster 2: mathematics
+- Cluster 3: chemistry
+- Cluster 4: physics
 
-In general, the top terms for each cluster are well selected by the KMeans algorithm. Though KMeans has some difficulty with the 
-philosophy and mathematics categories as some words are misplaced such as socratic which
-should be in the philosophy category and probability & statistical should be in the mathematics category.
-
-`:information_source:` From some of the Wikipedia pages forming the `dataset <./list_wikipedia_pages.rst>`_:
-
- - `Mathematics <https://en.wikipedia.org/wiki/Mathematics>`_: Socrates, Descartes and mind are mentioned zero, 
-   twice and seven times, respectively.
- - `Philosophy <https://en.wikipedia.org/wiki/Philosophy>`_: Only once is the word statistical mentioned and
-   probability is not mentioned at all.
- - `Socratic questioning <https://en.wikipedia.org/wiki/Socratic_questioning>`_: no mention of mathematics at all.
-
-The top words for the other clusters 1 to 3 (in particular cluster 1 with the biology-related words) are well choosen by KMeans.
+The top terms for all clusters except cluster 1 are well selected by the KMeans algorithm. Cluster 1 is not well
+delineated as being about philosophy. It is a cluster that has words overlapping three topics: mathematics,
+philosophy and physics.
