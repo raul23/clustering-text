@@ -502,6 +502,9 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 - ``Illegal instruction: 4``
 - ``Segmentation fault: 11``
 
+Though for whatever reason, I don't get the ``Illegal instruction: 4`` error. I only got it at first but now
+it is the segmentation fault error that I keep getting.
+
 Both errors happened exactly when shuffling the dataset and using eactly 100 compnents for 
 ``TruncatedSVD`` (when performing dimensionality reduction using LSA):
 
@@ -511,13 +514,15 @@ Both errors happened exactly when shuffling the dataset and using eactly 100 com
    lsa = make_pipeline(TruncatedSVD(n_components=100), Normalizer(copy=False))
    X_lsa = lsa.fit_transform(X_tfidf)
 
-If I use 101 or less than 100 components, I don't get these memory-related errors. Maybe
+If I don't do any shuffling and still use 100 components for ``TruncatedSVD``, I don't get the segmention fault error.
+
+If I use 101 or less than 100 components while also performing shuffling, I don't get these memory-related errors. Maybe
 the way I do the shuffling of the dataset consumes too much memory but it is still odd
 that if I use exactly 100 components for ``TruncatedSVD``, I get ``Segmentation fault: 11``.
 
 Also I can use 100 components for ``TruncatedSVD`` when `clustering Wikipedia pages <#results-of-clustering-wikipedia-pages>`_
 and I don't get any of these errors. Maybe because the `Wikipedia dataset 
-<#2-clustering-wikipedia-pages>`_ is a little bit than half the size than the `one <#clustering-ebooks-pdf-djvu>`_ used for ebooks.
+<#2-clustering-wikipedia-pages>`_ is a little bit less than half the size of the `one <#clustering-ebooks-pdf-djvu>`_ used for ebooks.
 
 However, later in the code, when hashed vectors are computed, I use 100 components for 
 ``TruncatedSVD`` and I don't get any error with this part of the code:
