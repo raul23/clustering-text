@@ -505,7 +505,7 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 Though for unknown reasons (I don't know exactly what changed in the code), I can't reproduce the ``Illegal instruction: 4`` error anymore. 
 I only got it at first but now it is only the segmentation fault error that I keep getting.
 
-Both errors happened exactly when shuffling the dataset and using 100 compnents for 
+Both errors happened exactly when shuffling the dataset and using 100 components for 
 ``TruncatedSVD`` (while performing dimensionality reduction using LSA):
 
 .. code-block:: python
