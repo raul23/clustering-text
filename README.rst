@@ -502,7 +502,7 @@ But keep in mind what they say about random labeling in scikit-learn's tutorial 
 - ``Illegal instruction: 4``
 - ``Segmentation fault: 11``
 
-Though for unknown reasons (I don't know exactly what changed in the code), I don't get the ``Illegal instruction: 4`` error. 
+Though for unknown reasons (I don't know exactly what changed in the code), I can't reproduce the ``Illegal instruction: 4`` error. 
 I only got it at first but now it is only the segmentation fault error that I keep getting.
 
 Both errors happened exactly when shuffling the dataset and using 100 compnents for 
@@ -516,7 +516,7 @@ Both errors happened exactly when shuffling the dataset and using 100 compnents 
 
 If I don't do any shuffling and still use 100 components for ``TruncatedSVD``, I don't get the segmention fault error.
 
-If I use 101 or less than 100 components while also performing shuffling, I don't get these memory-related errors. Maybe
+If I use 101 or less than 100 components while also performing shuffling, I don't get this memory-related error. Maybe
 the way I do the shuffling of the dataset consumes too much memory but it is still odd
 that if I use exactly 100 components for ``TruncatedSVD``, I get ``Segmentation fault: 11``.
 
