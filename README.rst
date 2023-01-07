@@ -377,7 +377,7 @@ Loading a dataset and applying OCR to those ebooks that couldn't be converted to
 
 |
 
-Results at the end of applying OCR to all problematic ebooks (maded of images):
+Results at the end of applying OCR to all problematic ebooks (made up of images):
 
 .. raw:: html
 
