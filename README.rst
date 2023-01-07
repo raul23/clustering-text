@@ -370,7 +370,7 @@ you can run the dataset generation using the  ``--ud`` and ``-o true`` (enable O
 
 Loading a dataset and applying OCR to those ebooks that couldn't be converted to ``txt`` with simpler methods (``pdftotext`` and ``djvutxt``):
 
- .. raw:: html
+.. raw:: html
 
    <p align="left"><img src="./images/updating_dataset_ocr.png">
    </p>
