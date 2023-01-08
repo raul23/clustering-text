@@ -681,7 +681,7 @@ Optionally:
 - `diskcache <http://www.grantjenks.com/docs/diskcache/>`_: **v5.4.0** for caching persistently the converted files into ``txt``
 
 Wikipedia directory 
--------------------
+"""""""""""""""""""
 `:warning:` In order to run the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_, you need first to have a main directory (e.g. ``./wikipedia/``) with all the Wikipedia pages (``*.html``) you want to test clustering on. Each Wikipedia page should be in a folder whose name should correspond to the category of said page.
 
 For example:
