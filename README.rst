@@ -566,7 +566,7 @@ formula) since there are a lot of overlaps between both topics.
 On the other hand, the last cluster (2) has top words that are strongly associated to the computer science
 domain and that are not often found in the other topics (mathematics or physics). Thus among books from
 the three topics in consideration, those about computer science will tend to be easier to cluster together
-because its vocabulary is very specific that the vocabulary for the other two topics (mathematics and physics).
+because its vocabulary is more specific that the vocabulary for the other two topics (mathematics and physics).
 
 2. Clustering Wikipedia pages
 =============================
