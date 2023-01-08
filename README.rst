@@ -124,8 +124,8 @@ dimensionality reduction using LSA:
 
    lsa = make_pipeline(TruncatedSVD(n_components=99), Normalizer(copy=False))
 
-Top terms per cluster (ebooks)
-------------------------------
+Top terms per cluster (ebooks) ⭐
+---------------------------------
 The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
 
    Cluster 0: geometry quantum universe physics light energy euclidean triangle relativity earth 
@@ -628,8 +628,8 @@ randomly generates the `labels <#2-clustering-wikipedia-pages>`_ (from 0 to 4) f
    <p align="center"><img src="./images/results_clustering_html_pages_4.png">
    </p>
 
-Top terms per cluster (Wikipedia pages)
----------------------------------------
+Top terms per cluster (Wikipedia pages) ⭐
+------------------------------------------
 The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
 
    Cluster 0: cell dna biology cells genes gene organisms population bacteria genetic 
