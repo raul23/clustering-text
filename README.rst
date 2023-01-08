@@ -607,6 +607,57 @@ The **size** for each category:
   - if they are not present in at least 5 documents
 - Around 16.4% of the entries of the ``X_tfidf`` matrix are non-zero
 
+Results of clustering Wikipedia pages ⭐
+----------------------------------------
+`:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
+randomly generates the `labels <#2-clustering-wikipedia-pages>`_ (from 0 to 4) for the Wikipedia pages:
+
+|
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+|                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
++=========================+================+===========================+====================================+=============================================+====================================+=============================================+
+| Time                    | 0.00 ± 0.00 s  | 0.12 ± 0.01 s             | 0.01 ± 0.00 s                      | 0.07 ± 0.03 s                               | 0.01 ± 0.00 s                      | 0.05 ± 0.01 s                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Homogeneity             | 0.085 ± 0.016  | 0.636 ± 0.028             | 0.605 ± 0.093                      | 0.523 ± 0.120                               | 0.516 ± 0.097                      | 0.560 ± 0.127                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Completeness            | 0.085 ± 0.016  | 0.646 ± 0.030             | 0.621 ± 0.087                      | 0.589 ± 0.113                               | 0.561 ± 0.092                      | 0.639 ± 0.118                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| V-measure               | 0.085 ± 0.016  | 0.641 ± 0.029             | 0.613 ± 0.090                      | 0.553 ± 0.117                               | 0.538 ± 0.095                      | 0.596 ± 0.122                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Adjusted Rand-Index     | -0.004 ± 0.004 | 0.494 ± 0.037             | 0.477 ± 0.094                      | 0.401 ± 0.161                               | 0.400 ± 0.079                      | 0.445 ± 0.152                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Silhouette Coefficient  | -0.014 ± 0.002 | 0.050 ± 0.002             | 0.042 ± 0.007                      | 0.038 ± 0.011                               | 0.031 ± 0.009                      | 0.032 ± 0.016                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+
+.. raw:: html
+
+   <p align="center"><img src="./images/results_clustering_html_pages_4.png">
+   </p>
+
+Top terms per cluster (Wikipedia pages)
+---------------------------------------
+The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
+
+   Cluster 0: cell dna biology cells genes gene organisms population bacteria genetic 
+   Cluster 1: relativity speed motion statistical events language probability mind wave reality 
+   Cluster 2: mathematics logic geometry calculus algebra discrete algebraic action equations arithmetic 
+   Cluster 3: chemistry chemical bond bonds reaction hydrogen reactions compounds acid redox 
+   Cluster 4: conservation mathrm equilibrium gas charge nuclear atomic chemical pressure particles
+
+Recall the `true labels <#2-clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
+
+Thus we could infer the labels for each cluster found by KMeans:
+
+- Cluster 0: biology
+- Cluster 1: philosophy? or overlap between  mathematics, philosophy and physics?
+- Cluster 2: mathematics
+- Cluster 3: chemistry
+- Cluster 4: physics
+
+The top terms for all clusters except cluster 1 are well selected by the KMeans algorithm. Cluster 1 is not well
+delineated as being about philosophy. It is a cluster that has words overlapping three topics: mathematics,
+philosophy and physics.
+
 Script ``cluster_text_docs.py`` (part 2)
 ----------------------------------------
 This is the environment on which the script `cluster_text_docs.py <./scripts/cluster_text_docs.py>`_ was tested:
@@ -658,54 +709,3 @@ The label used by ``target`` is automatically generated by assigning integers (f
 The dataset is saved as a pickle file under the main directory that you provided to the script.
 
 The next times the script is run, the dataset will be loaded from disk as long as you don't delete or move the pickle file saved directly under the main directory.
-
-Results of clustering Wikipedia pages ⭐
-----------------------------------------
-`:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
-randomly generates the `labels <#2-clustering-wikipedia-pages>`_ (from 0 to 4) for the Wikipedia pages:
-
-|
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-|                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
-+=========================+================+===========================+====================================+=============================================+====================================+=============================================+
-| Time                    | 0.00 ± 0.00 s  | 0.12 ± 0.01 s             | 0.01 ± 0.00 s                      | 0.07 ± 0.03 s                               | 0.01 ± 0.00 s                      | 0.05 ± 0.01 s                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Homogeneity             | 0.085 ± 0.016  | 0.636 ± 0.028             | 0.605 ± 0.093                      | 0.523 ± 0.120                               | 0.516 ± 0.097                      | 0.560 ± 0.127                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Completeness            | 0.085 ± 0.016  | 0.646 ± 0.030             | 0.621 ± 0.087                      | 0.589 ± 0.113                               | 0.561 ± 0.092                      | 0.639 ± 0.118                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| V-measure               | 0.085 ± 0.016  | 0.641 ± 0.029             | 0.613 ± 0.090                      | 0.553 ± 0.117                               | 0.538 ± 0.095                      | 0.596 ± 0.122                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Adjusted Rand-Index     | -0.004 ± 0.004 | 0.494 ± 0.037             | 0.477 ± 0.094                      | 0.401 ± 0.161                               | 0.400 ± 0.079                      | 0.445 ± 0.152                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Silhouette Coefficient  | -0.014 ± 0.002 | 0.050 ± 0.002             | 0.042 ± 0.007                      | 0.038 ± 0.011                               | 0.031 ± 0.009                      | 0.032 ± 0.016                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-
-.. raw:: html
-
-   <p align="center"><img src="./images/results_clustering_html_pages_4.png">
-   </p>
-
-Top terms per cluster (Wikipedia pages)
----------------------------------------
-The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
-
-   Cluster 0: cell dna biology cells genes gene organisms population bacteria genetic 
-   Cluster 1: relativity speed motion statistical events language probability mind wave reality 
-   Cluster 2: mathematics logic geometry calculus algebra discrete algebraic action equations arithmetic 
-   Cluster 3: chemistry chemical bond bonds reaction hydrogen reactions compounds acid redox 
-   Cluster 4: conservation mathrm equilibrium gas charge nuclear atomic chemical pressure particles
-
-Recall the `true labels <#2-clustering-wikipedia-pages>`_: biology, chemistry, mathematics, philosophy, physics.
-
-Thus we could infer the labels for each cluster found by KMeans:
-
-- Cluster 0: biology
-- Cluster 1: philosophy? or overlap between  mathematics, philosophy and physics?
-- Cluster 2: mathematics
-- Cluster 3: chemistry
-- Cluster 4: physics
-
-The top terms for all clusters except cluster 1 are well selected by the KMeans algorithm. Cluster 1 is not well
-delineated as being about philosophy. It is a cluster that has words overlapping three topics: mathematics,
-philosophy and physics.
