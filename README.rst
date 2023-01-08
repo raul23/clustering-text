@@ -2,7 +2,7 @@
 Experimenting with clustering text documents
 ============================================
 .. contents:: **Contents**
-   :depth: 4
+   :depth: 3
    :local:
    :backlinks: top
    
