@@ -39,6 +39,121 @@ To quickly check the clustering results which are surprisingly good considering 
 - `Results of clustering ebooks <#results-of-clustering-ebooks-pdf-and-djvu>`_
 - `Top terms per cluster (ebooks) <#top-terms-per-cluster-ebooks>`_
 
+
+Results of clustering ebooks (``pdf`` and ``djvu``) ⭐
+------------------------------------------------------
+I put the results section at the top before explaining the `script <#script-cluster-text-docs-py-part-1>`_ since it is the most important and interesting part of this document.
+
+Thus without further ado, here are the results of clustering ebooks.
+
+`:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
+randomly generates the `labels <#clustering-ebooks-pdf-djvu>`_ (from 0 to 2) for the ebooks:
+
+.. code-block:: python
+
+   self.labels_ = np.random.randint(0, self.n_clusters, X.shape[0])
+
+But keep in mind what they say about random labeling in scikit-learn's tutorial `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html#clustering-evaluation-summary>`_:
+
+ The homogeneity, completeness and hence v-measure metrics do not yield a baseline with regards to random labeling: 
+ this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
+ not always yield the same values.
+
+|
+
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+|                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
++=========================+================+===========================+====================================+=============================================+====================================+=============================================+
+| Time                    | 0.00 ± 0.00 s  | 0.12 ± 0.01 s             | 0.01 ± 0.00 s                      | 0.05 ± 0.03 s                               | 0.00 ± 0.00 s                      | 0.05 ± 0.01 s                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Homogeneity             | 0.010 ± 0.06   | 0.510 ± 0.152             | 0.514 ± 0.172                      | 0.519 ± 0.093                               | 0.555 ± 0.230                      | 0.494 ± 0.201                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Completeness            | 0.010 ± 0.06   | 0.570 ± 0.120             | 0.536 ± 0.145                      | 0.583 ± 0.080                               | 0.586 ± 0.188                      | 0.560 ± 0.149                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| V-measure               | 0.010 ± 0.06   | 0.537 ± 0.138             | 0.524 ± 0.159                      | 0.547 ± 0.081                               | 0.567 ± 0.213                      | 0.517 ± 0.184                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Adjusted Rand-Index     | -0.006 ± 0.006 | 0.437 ± 0.184             | 0.455 ± 0.227                      | 0.472 ± 0.090                               | 0.538 ± 0.279                      | 0.465 ± 0.239                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+| Silhouette Coefficient  | -0.005 ± 0.001 | 0.049 ± 0.003             | 0.046 ± 0.010                      | 0.044 ± 0.010                               | 0.038 ± 0.010                      | 0.039 ± 0.008                               |
++-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
+
+.. raw:: html
+
+   <p align="center"><img src="./images/results_clustering_ebooks2.png">
+   </p>
+
+|
+
+`:warning:` While computing these results I ran into two errors that were memory-related:
+
+- ``Illegal instruction: 4``
+- ``Segmentation fault: 11``
+
+Though for unknown reasons (I don't know exactly what changed in the code), I can't reproduce the ``Illegal instruction: 4`` error anymore. 
+I only got it at first but now it is only the segmentation fault error that I keep getting.
+
+Both errors happened exactly when shuffling the dataset and using 100 components for 
+``TruncatedSVD`` (while performing dimensionality reduction using LSA):
+
+.. code-block:: python
+
+   data_manager.shuffle_dataset(dataset)
+   lsa = make_pipeline(TruncatedSVD(n_components=100), Normalizer(copy=False))
+   X_lsa = lsa.fit_transform(X_tfidf)
+
+If I don't do any shuffling and still use 100 components for ``TruncatedSVD``, I don't get the segmention fault error.
+
+If I use 101 or less than 100 components while also performing shuffling, I don't get this memory-related error. Maybe
+the way I do the shuffling of the dataset consumes too much memory but it is still odd
+that if I use exactly 100 components for ``TruncatedSVD``, I get ``Segmentation fault: 11``.
+
+Also I can use 100 components for ``TruncatedSVD`` when `clustering Wikipedia pages <#results-of-clustering-wikipedia-pages>`_
+and I don't get any of these errors. Maybe because the `Wikipedia dataset 
+<#2-clustering-wikipedia-pages>`_ is a little bit less than half the size of the `one <#clustering-ebooks-pdf-djvu>`_ used for ebooks.
+
+However, later in the code, when hashed vectors are computed, I use 100 components for 
+``TruncatedSVD`` and I don't get any error with this part of the code:
+
+.. code-block:: python
+
+   lsa_vectorizer = make_pipeline(
+        HashingVectorizer(stop_words="english", n_features=50_000),
+        TfidfTransformer(),
+        TruncatedSVD(n_components=100, random_state=0),
+        Normalizer(copy=False),
+    )
+
+Thus the **solution** is to not use 100 components for ``TruncatedSVD`` when performing
+dimensionality reduction using LSA:
+
+.. code-block:: python
+
+   lsa = make_pipeline(TruncatedSVD(n_components=99), Normalizer(copy=False))
+
+Top terms per cluster (ebooks)
+------------------------------
+The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
+
+   Cluster 0: geometry quantum universe physics light energy euclidean triangle relativity earth 
+   Cluster 1: riemann zeta hypothesis prime zeros formula primes log analytic dirichlet 
+   Cluster 2: algorithm algorithms programming code gcd input integer python programs integers
+
+Recall the `true labels <#clustering-ebooks-pdf-djvu>`_: computer_science, mathematics, physics.
+
+Thus we could infer the labels for each cluster found by KMeans:
+
+- Cluster 0: physics
+- Cluster 1: mathematics
+- Cluster 2: computer_science
+
+In general, the top terms for each cluster are well selected by the KMeans algorithm. There are some words
+in the mathematics and physics categories that could have been found in either group (e.g. geometry, euclidean, 
+formula) since there are a lot of overlaps between both topics. 
+
+On the other hand, the last cluster (2) has top words that are strongly associated to the computer science
+domain and that are not often found in the other topics (mathematics or physics). Thus among books from
+the three topics in consideration, those about computer science will tend to be easier to cluster together.
+
 Script ``cluster_text_docs.py`` (part 1)
 ----------------------------------------
 Dependencies
@@ -456,116 +571,6 @@ filtering is completed
 
 `:information_source:` You will see in my list of ebooks that the text from the ebook ``abstract algebra.pdf`` was rejected even though it
 is from an English mathematics ebook. ``pycld2`` detected the text as not being in English because the text conversion (``pdftotext``) didn't 100% succeeded and introduced too many odd characters (e.g. ``0ß Å ÞBð``) mixed with english words. It seems that it is the only ebook over 153 converted documents that has this problem.
-
-Results of clustering ebooks (``pdf`` and ``djvu``) ⭐
-------------------------------------------------------
-`:information_source:` A random model is also "trained" on this dataset and its performance is reported. This model
-randomly generates the `labels <#clustering-ebooks-pdf-djvu>`_ (from 0 to 2) for the ebooks:
-
-.. code-block:: python
-
-   self.labels_ = np.random.randint(0, self.n_clusters, X.shape[0])
-
-But keep in mind what they say about random labeling in scikit-learn's tutorial `Clustering text documents using k-means <https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html#clustering-evaluation-summary>`_:
-
- The homogeneity, completeness and hence v-measure metrics do not yield a baseline with regards to random labeling: 
- this means that depending on the number of samples, clusters and ground truth classes, a completely random labeling will 
- not always yield the same values.
-
-|
-
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-|                         | RandomModel    | KMeans on tf-idf vectors  | KMeans with LSA on tf-idf vectors  | MiniBatchKMeans with LSA on tf-idf vectors  | KMeans with LSA on hashed vectors  | MiniBatchKMeans with LSA on hashed vectors  |
-+=========================+================+===========================+====================================+=============================================+====================================+=============================================+
-| Time                    | 0.00 ± 0.00 s  | 0.12 ± 0.01 s             | 0.01 ± 0.00 s                      | 0.05 ± 0.03 s                               | 0.00 ± 0.00 s                      | 0.05 ± 0.01 s                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Homogeneity             | 0.010 ± 0.06   | 0.510 ± 0.152             | 0.514 ± 0.172                      | 0.519 ± 0.093                               | 0.555 ± 0.230                      | 0.494 ± 0.201                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Completeness            | 0.010 ± 0.06   | 0.570 ± 0.120             | 0.536 ± 0.145                      | 0.583 ± 0.080                               | 0.586 ± 0.188                      | 0.560 ± 0.149                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| V-measure               | 0.010 ± 0.06   | 0.537 ± 0.138             | 0.524 ± 0.159                      | 0.547 ± 0.081                               | 0.567 ± 0.213                      | 0.517 ± 0.184                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Adjusted Rand-Index     | -0.006 ± 0.006 | 0.437 ± 0.184             | 0.455 ± 0.227                      | 0.472 ± 0.090                               | 0.538 ± 0.279                      | 0.465 ± 0.239                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-| Silhouette Coefficient  | -0.005 ± 0.001 | 0.049 ± 0.003             | 0.046 ± 0.010                      | 0.044 ± 0.010                               | 0.038 ± 0.010                      | 0.039 ± 0.008                               |
-+-------------------------+----------------+---------------------------+------------------------------------+---------------------------------------------+------------------------------------+---------------------------------------------+
-
-.. raw:: html
-
-   <p align="center"><img src="./images/results_clustering_ebooks2.png">
-   </p>
-
-|
-
-`:warning:` While computing these results I ran into two errors that were memory-related:
-
-- ``Illegal instruction: 4``
-- ``Segmentation fault: 11``
-
-Though for unknown reasons (I don't know exactly what changed in the code), I can't reproduce the ``Illegal instruction: 4`` error anymore. 
-I only got it at first but now it is only the segmentation fault error that I keep getting.
-
-Both errors happened exactly when shuffling the dataset and using 100 components for 
-``TruncatedSVD`` (while performing dimensionality reduction using LSA):
-
-.. code-block:: python
-
-   data_manager.shuffle_dataset(dataset)
-   lsa = make_pipeline(TruncatedSVD(n_components=100), Normalizer(copy=False))
-   X_lsa = lsa.fit_transform(X_tfidf)
-
-If I don't do any shuffling and still use 100 components for ``TruncatedSVD``, I don't get the segmention fault error.
-
-If I use 101 or less than 100 components while also performing shuffling, I don't get this memory-related error. Maybe
-the way I do the shuffling of the dataset consumes too much memory but it is still odd
-that if I use exactly 100 components for ``TruncatedSVD``, I get ``Segmentation fault: 11``.
-
-Also I can use 100 components for ``TruncatedSVD`` when `clustering Wikipedia pages <#results-of-clustering-wikipedia-pages>`_
-and I don't get any of these errors. Maybe because the `Wikipedia dataset 
-<#2-clustering-wikipedia-pages>`_ is a little bit less than half the size of the `one <#clustering-ebooks-pdf-djvu>`_ used for ebooks.
-
-However, later in the code, when hashed vectors are computed, I use 100 components for 
-``TruncatedSVD`` and I don't get any error with this part of the code:
-
-.. code-block:: python
-
-   lsa_vectorizer = make_pipeline(
-        HashingVectorizer(stop_words="english", n_features=50_000),
-        TfidfTransformer(),
-        TruncatedSVD(n_components=100, random_state=0),
-        Normalizer(copy=False),
-    )
-
-Thus the **solution** is to not use 100 components for ``TruncatedSVD`` when performing
-dimensionality reduction using LSA:
-
-.. code-block:: python
-
-   lsa = make_pipeline(TruncatedSVD(n_components=99), Normalizer(copy=False))
-
-Top terms per cluster (ebooks)
-------------------------------
-The 10 most influential words for each cluster according to the KMean algorithm (with LSA on tf-idf vectors)::
-
-   Cluster 0: geometry quantum universe physics light energy euclidean triangle relativity earth 
-   Cluster 1: riemann zeta hypothesis prime zeros formula primes log analytic dirichlet 
-   Cluster 2: algorithm algorithms programming code gcd input integer python programs integers
-
-Recall the `true labels <#clustering-ebooks-pdf-djvu>`_: computer_science, mathematics, physics.
-
-Thus we could infer the labels for each cluster found by KMeans:
-
-- Cluster 0: physics
-- Cluster 1: mathematics
-- Cluster 2: computer_science
-
-In general, the top terms for each cluster are well selected by the KMeans algorithm. There are some words
-in the mathematics and physics categories that could have been found in either group (e.g. geometry, euclidean, 
-formula) since there are a lot of overlaps between both topics. 
-
-On the other hand, the last cluster (2) has top words that are strongly associated to the computer science
-domain and that are not often found in the other topics (mathematics or physics). Thus among books from
-the three topics in consideration, those about computer science will tend to be easier to cluster together.
 
 2. Clustering Wikipedia pages
 =============================
