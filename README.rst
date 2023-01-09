@@ -189,7 +189,7 @@ To display the script's list of options and their descriptions::
  $ python cluster_text_docs.py -h
  usage: python cluster_text_docs.py [OPTIONS] {input_directory}
 
-I won't list all options (too many) but here some of the important and interesting ones:
+I won't list all options (too many) but here are some of the important and interesting ones:
 
 -s, --seed SEED                        Seed for numpy's and Python's random generators. (default: 123456)
 -u, --use-cache                        Highly recommended to use cache to speed up **dataset re-creation**.
