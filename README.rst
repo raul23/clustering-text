@@ -374,7 +374,7 @@ To start generating a dataset containing texts from ebooks after you have setup 
   simpler conversion methods (``pdftotext`` or ``djvutxt``) are used instead which are very quick and reliable in their text conversion of ebooks.
 - By default, only 10% of a given ebook is converted to text. The option ``--cope, --convert-only-percentage-ebook PAGES`` controls
   this percentage.
-- If the text conversion fails with the simpler tools ((``pdftotext`` or ``djvutxt``) because an ebook is composed of images 
+- If the text conversion fails with the simpler tools (``pdftotext`` or ``djvutxt``) because an ebook is composed of images 
   for example, then a warning message is printed suggesting you to use OCR which should be able to fix the problem but if too many ebooks
   are images then it might not be practicable to use OCR if updating the dataset afterward.
 - The hash of each ebook is computed so as to avoid adding duplicates in the dataset. Also the hashes are used as keys in the cache if
